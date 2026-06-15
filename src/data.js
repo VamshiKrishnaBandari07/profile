@@ -55,6 +55,133 @@ export const highlights = [
   },
 ];
 
+export const achievements = [
+  {
+    metric: "UK Parliament",
+    label: "AI in Healthcare Showcase",
+    detail: "Palace of Westminster — policy & NHS scaling discussions with MPs and innovators",
+  },
+  {
+    metric: "London",
+    label: "Tech & Innovation Events",
+    detail: "FRC/ODI Innovation Sprint, fintech hackathons, and UK AI ecosystem engagement",
+  },
+  {
+    metric: "KidneyX",
+    label: "EMPOWER Prize Submission",
+    detail: "DonorLink clinical decision-support platform · Team VK7 · Track B prototype",
+  },
+  {
+    metric: "40%",
+    label: "Data Integrity Gain",
+    detail: "Cognizant — Google Cloud migration, 10+ ETL pipelines, KPI dashboard automation",
+  },
+  {
+    metric: "Pod Lead",
+    label: "Team Leadership",
+    detail: "Mentored 15 analysts at Cognizant; promoted for workflow & performance leadership",
+  },
+  {
+    metric: "2nd Place",
+    label: "Data Analytics Hackathon",
+    detail: "Inter-college competition during B.Tech — Institute of Aeronautical Engineering",
+  },
+];
+
+export const certifications = [
+  {
+    name: "Career Essentials in Generative AI",
+    issuer: "Microsoft & LinkedIn",
+    date: "Oct 2025",
+    category: "Generative AI",
+    link: "https://linkedin.com/learning/certificates/f454ed1e5e8eea6c07ae649ec35af454c9da3f579474d591d42da78ee8d06b72",
+  },
+  {
+    name: "Intro to Generative AI: Core Concepts",
+    issuer: "Google Cloud Skills Boost",
+    date: "Oct 2025",
+    category: "Generative AI",
+    link: "https://coursera.org/account/accomplishments/specialization/certificate/KL5LQKLDHITD",
+  },
+  {
+    name: "Introduction to Artificial Intelligence",
+    issuer: "LinkedIn Learning",
+    date: "Oct 2025",
+    category: "Artificial Intelligence",
+    link: "https://linkedin.com/learning/certificates/6313cf3a5e113fdb6dbfd16c55b40d1b34b373eea3469137d8a91e6b0d5dc22b",
+  },
+  {
+    name: "Cloud Technical Series — AI Agents",
+    issuer: "Google Cloud Asia Pacific",
+    date: "Aug 2025",
+    category: "AI Agents",
+    link: "https://credential.net/b9c79565-b441-4fc0-be98-5fc2a962737d",
+  },
+  {
+    name: "Ethics in the Age of Generative AI",
+    issuer: "LinkedIn Learning",
+    date: "Aug 2025",
+    category: "AI Ethics",
+    link: "https://linkedin.com/learning/certificates/17f87025ed71687aafab63a3235bf38aea69ba51dc19f54fbc79f9e444a9580c",
+  },
+  {
+    name: "Oracle Fusion AI Agent Studio Foundations",
+    issuer: "Oracle",
+    date: "Aug 2025",
+    category: "AI Agents",
+    link: "https://catalog-education.oracle.com/ords/certview/sharebadge?id=E56134E093049A43AAA1D831E2DAC538F8414FE3E901A4E1CF808AEF66A268B2",
+  },
+  {
+    name: "What Is Generative AI?",
+    issuer: "LinkedIn Learning",
+    date: "Aug 2025",
+    category: "Generative AI",
+    link: "https://linkedin.com/learning/certificates/02488a41508c12e02542af16b4c3419468beffa434b130bd110f5326b89bee69",
+  },
+  {
+    name: "Getting Started with Artificial Intelligence",
+    issuer: "IBM SkillsBuild",
+    date: "2025",
+    category: "Artificial Intelligence",
+    link: "https://www.linkedin.com/in/vamshi-krishna-bandari-623580212/details/certifications/",
+  },
+  {
+    name: "Data Fundamentals with Capstone Project",
+    issuer: "IBM SkillsBuild",
+    date: "2025",
+    category: "Data Analytics",
+    link: "https://www.linkedin.com/in/vamshi-krishna-bandari-623580212/details/certifications/",
+  },
+  {
+    name: "Artificial Intelligence Fundamentals",
+    issuer: "IBM SkillsBuild",
+    date: "2025",
+    category: "Artificial Intelligence",
+    link: "https://www.linkedin.com/in/vamshi-krishna-bandari-623580212/details/certifications/",
+  },
+  {
+    name: "Data Analytics Job Simulation",
+    issuer: "Deloitte · Forage",
+    date: "Mar 2025",
+    category: "Data Analytics",
+    link: "https://www.linkedin.com/in/vamshi-krishna-bandari-623580212/details/certifications/",
+  },
+  {
+    name: "Power BI Job Simulation",
+    issuer: "PwC Switzerland · Forage",
+    date: "Mar 2025",
+    category: "Business Intelligence",
+    link: "https://www.linkedin.com/in/vamshi-krishna-bandari-623580212/details/certifications/",
+  },
+  {
+    name: "Data Analytics & Visualization Simulation",
+    issuer: "Accenture · Forage",
+    date: "Jun 2024",
+    category: "Data Analytics",
+    link: "https://www.linkedin.com/in/vamshi-krishna-bandari-623580212/details/certifications/",
+  },
+];
+
 export const projects = [
   {
     title: "DonorLink",

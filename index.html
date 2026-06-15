@@ -17,7 +17,9 @@
       <button class="nav__toggle" id="nav-toggle" aria-label="Menu"><span></span></button>
       <ul class="nav__links" id="nav-links">
         <li><a href="#about">About</a></li>
-        <li><a href="#highlights">Highlights</a></li>
+        <li><a href="#achievements">Achievements</a></li>
+        <li><a href="#highlights">Photos</a></li>
+        <li><a href="#certifications">Certifications</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#experience">Experience</a></li>
         <li><a href="#contact">Contact</a></li>
@@ -33,13 +35,24 @@
           <div class="hero__actions">
             <a href="https://www.linkedin.com/in/vamshi-krishna-bandari-623580212" target="_blank" rel="noopener" class="btn btn--primary">LinkedIn</a>
             <a href="https://github.com/VamshiKrishnaBandari07" target="_blank" rel="noopener" class="btn btn--ghost">GitHub</a>
-            <a href="#highlights" class="btn btn--ghost">View highlights</a>
+            <a href="#highlights" class="btn btn--ghost">View photos</a>
           </div>
         </div>
-        <div class="hero__card glass">
-          <div class="hero__stat"><strong>Parliament</strong><span>AI Healthcare Showcase</span></div>
-          <div class="hero__stat"><strong>London</strong><span>Innovation & Tech Events</span></div>
-          <div class="hero__stat"><strong>MSc AI</strong><span>University of Roehampton</span></div>
+        <div class="hero__visual">
+          <div class="hero__photo-wrap glass">
+            <img
+              src="/profile/assets/profile.jpg"
+              alt="Vamshi Krishna Bandari"
+              class="hero__photo"
+              onerror="this.src='https://ui-avatars.com/api/?name=Vamshi+Krishna+Bandari&size=400&background=1e3a5f&color=fff&bold=true'"
+            />
+            <span class="hero__photo-badge">MSc AI · Roehampton</span>
+          </div>
+          <div class="hero__card glass">
+            <div class="hero__stat"><strong>13+</strong><span>AI Certifications</span></div>
+            <div class="hero__stat"><strong>Parliament</strong><span>Healthcare AI Showcase</span></div>
+            <div class="hero__stat"><strong>London</strong><span>Tech & Innovation</span></div>
+          </div>
         </div>
       </section>
 
@@ -54,31 +67,51 @@
         </div>
       </section>
 
-      <section id="highlights" class="section section--dark">
+      <section id="achievements" class="section section--dark">
         <div class="container">
-          <header class="section__head"><span class="section__num">02</span><h2>Featured Highlights</h2></header>
-          <p class="section__intro">Selected moments from Parliament, London tech innovation, and professional milestones — demonstrating engagement beyond the classroom.</p>
+          <header class="section__head"><span class="section__num">02</span><h2>Achievements & Milestones</h2></header>
+          <p class="section__intro">Key professional, academic, and leadership milestones across policy forums, industry, and research.</p>
+          <div class="achievements" id="achievements-grid"></div>
+        </div>
+      </section>
+
+      <section id="highlights" class="section">
+        <div class="container">
+          <header class="section__head"><span class="section__num">03</span><h2>Photos & Event Highlights</h2></header>
+          <p class="section__intro">Parliament AI Showcase, London innovation events, hackathons, and research — add your LinkedIn photos to <code>public/assets/highlights/</code></p>
           <div class="gallery" id="gallery"></div>
+        </div>
+      </section>
+
+      <section id="certifications" class="section section--dark">
+        <div class="container">
+          <header class="section__head"><span class="section__num">04</span><h2>AI & Data Certifications</h2></header>
+          <p class="section__intro">Verified credentials in artificial intelligence, generative AI, AI agents, ethics, and data analytics from Microsoft, Google, IBM, Oracle, and industry simulations.</p>
+          <div class="cert-filters" id="cert-filters"></div>
+          <div class="cert-grid" id="certifications"></div>
+          <p class="cert__all">
+            <a href="https://www.linkedin.com/in/vamshi-krishna-bandari-623580212/details/certifications/" target="_blank" rel="noopener">View all certifications on LinkedIn →</a>
+          </p>
         </div>
       </section>
 
       <section id="projects" class="section">
         <div class="container">
-          <header class="section__head"><span class="section__num">03</span><h2>Selected Work</h2></header>
+          <header class="section__head"><span class="section__num">05</span><h2>Selected Work</h2></header>
           <div class="cards" id="projects"></div>
         </div>
       </section>
 
       <section id="experience" class="section section--dark">
         <div class="container">
-          <header class="section__head"><span class="section__num">04</span><h2>Experience & Education</h2></header>
+          <header class="section__head"><span class="section__num">06</span><h2>Experience & Education</h2></header>
           <div class="timeline" id="timeline"></div>
         </div>
       </section>
 
       <section id="contact" class="section">
         <div class="container contact">
-          <header class="section__head"><span class="section__num">05</span><h2>Contact</h2></header>
+          <header class="section__head"><span class="section__num">07</span><h2>Contact</h2></header>
           <p>Open to research collaborations, graduate opportunities, and applied AI engineering roles.</p>
           <div class="contact__links">
             <a href="https://www.linkedin.com/in/vamshi-krishna-bandari-623580212" target="_blank" rel="noopener" class="contact__link">LinkedIn</a>
@@ -91,7 +124,7 @@
 
     <footer class="footer">
       <p>&copy; 2026 Vamshi Krishna Bandari · Built with Three.js</p>
-      <p class="footer__note">Replace highlight images in <code>public/assets/highlights/</code> with your LinkedIn photos.</p>
+      <p class="footer__note">Photos: replace files in <code>public/assets/highlights/</code> and <code>public/assets/profile.jpg</code> with your LinkedIn images.</p>
     </footer>
 
     <script type="module" src="/src/main.js"></script>

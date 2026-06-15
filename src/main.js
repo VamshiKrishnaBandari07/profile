@@ -1,4 +1,5 @@
 import { initScene } from "./scene3d.js";
+import { initPhoto3D } from "./photo3d.js";
 import { initGallery } from "./gallery.js";
 import {
   profile,
@@ -13,8 +14,33 @@ import {
 } from "./data.js";
 import "./style.css";
 
-initScene(document.getElementById("bg-canvas"));
-initGallery(highlights, getAllPhotos(highlights));
+const allPhotos = getAllPhotos(highlights);
+const photoUrls = allPhotos.map((p) => p.src);
+
+initScene(document.getElementById("bg-canvas"), photoUrls);
+initGallery(highlights, allPhotos);
+
+// Interactive 3D photo ring
+const photoCanvas = document.getElementById("photo-3d-canvas");
+if (photoCanvas) {
+  initPhoto3D(photoCanvas, allPhotos, (photo) => {
+    const idx = allPhotos.findIndex((p) => p.id === photo.id);
+    document.getElementById("highlights")?.scrollIntoView({ behavior: "smooth" });
+    if (idx >= 0) {
+      document.querySelector(".lightbox")?.classList.add("lightbox--open");
+      document.body.style.overflow = "hidden";
+      const lb = document.getElementById("lightbox");
+      if (lb) {
+        lb.querySelector(".lightbox__img").src = photo.src;
+        lb.querySelector(".lightbox__title").textContent = photo.title;
+        lb.querySelector(".lightbox__caption").textContent = photo.caption;
+        lb.querySelector(".lightbox__meta").textContent = `${photo.date} · ${photo.location}`;
+        lb.querySelector(".lightbox__link").href = photo.linkedin;
+        lb.querySelector(".lightbox__counter").textContent = `${idx + 1} / ${allPhotos.length}`;
+      }
+    }
+  });
+}
 
 // ─── Nav & scroll ───
 const nav = document.getElementById("nav");

@@ -83,7 +83,16 @@
       <section id="highlights" class="section section--photos">
         <div class="container">
           <header class="section__head"><span class="section__num">02</span><h2>Photos & Event Highlights</h2></header>
-          <p class="section__intro">17 curated moments across Parliament, London tech, hackathons, and healthcare research — click any photo to explore full-screen.</p>
+          <p class="section__intro">17 curated moments — drag the 3D gallery below, or click any photo to explore full-screen.</p>
+
+          <div class="photo-3d-wrap glass">
+            <div class="photo-3d__label">
+              <span>3D Photo Gallery</span>
+              <em>Drag to rotate · Click a photo · Scroll to zoom</em>
+            </div>
+            <canvas id="photo-3d-canvas" aria-label="Interactive 3D photo gallery"></canvas>
+          </div>
+
           <div class="photo-filters" id="photo-filters"></div>
           <div class="spotlight" id="spotlight"></div>
           <div class="bento" id="bento-gallery"></div>

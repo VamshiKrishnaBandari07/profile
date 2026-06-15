@@ -12,9 +12,9 @@ export const profile = {
 
 export const stats = [
   { value: 13, suffix: "+", label: "AI Certifications" },
-  { value: 4, suffix: "", label: "Major Events & Showcases" },
+  { value: 17, suffix: "", label: "Photos & Moments" },
   { value: 40, suffix: "%", label: "Data Integrity Gain · Cognizant" },
-  { value: 2, suffix: "", label: "Hackathon Placements" },
+  { value: 4, suffix: "", label: "Major Events & Showcases" },
 ];
 
 export const skills = [
@@ -35,13 +35,19 @@ export const highlights = [
     category: "Policy",
     featured: true,
     bento: "hero",
-    image: "/profile/assets/highlights/parliament.jpg",
+    image: "/profile/assets/gallery/parliament/01.jpg",
     fallback: "https://images.unsplash.com/photo-1529651737248-dad5a910bdb2?w=1200&q=85",
     excerpt:
       "Attended the AI in Healthcare & Life Sciences Parliamentary Showcase led by Steve Yemm MP — discussions on scaling AI adoption across the NHS and delivering measurable patient outcomes.",
     tags: ["NHS", "Healthcare AI", "Public Policy"],
     linkedin:
       "https://www.linkedin.com/posts/vamshi-krishna-bandari-623580212_ai-aidevelopment-aiadoption-activity-7449937731247542273-tCUW",
+    photos: [
+      { src: "/profile/assets/gallery/parliament/01.jpg", caption: "Westminster · Policy Forum" },
+      { src: "/profile/assets/gallery/parliament/02.jpg", caption: "London · Institutional Setting" },
+      { src: "/profile/assets/gallery/parliament/03.jpg", caption: "Healthcare AI Dialogue" },
+      { src: "/profile/assets/gallery/parliament/04.jpg", caption: "Parliamentary Showcase" },
+    ],
   },
   {
     id: "london-tech",
@@ -51,12 +57,18 @@ export const highlights = [
     category: "Innovation",
     featured: true,
     bento: "wide",
-    image: "/profile/assets/highlights/london-tech.jpg",
+    image: "/profile/assets/gallery/london-tech/01.jpg",
     fallback: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1200&q=85",
     excerpt:
       "Engaged with London's technology community — founders, policymakers, and engineers shaping AI, fintech, and digital transformation across the UK.",
     tags: ["London Tech", "Innovation", "AI Ecosystem"],
     linkedin: "https://www.linkedin.com/in/vamshi-krishna-bandari-623580212/recent-activity/all/",
+    photos: [
+      { src: "/profile/assets/gallery/london-tech/01.jpg", caption: "London Tech Summit" },
+      { src: "/profile/assets/gallery/london-tech/02.jpg", caption: "Innovation Networking" },
+      { src: "/profile/assets/gallery/london-tech/03.jpg", caption: "Startup & Enterprise Forum" },
+      { src: "/profile/assets/gallery/london-tech/04.jpg", caption: "London Skyline · FinTech Hub" },
+    ],
   },
   {
     id: "frc-hackathon",
@@ -66,13 +78,19 @@ export const highlights = [
     category: "FinTech",
     featured: false,
     bento: "tall",
-    image: "/profile/assets/highlights/frc-hackathon.jpg",
+    image: "/profile/assets/gallery/frc-hackathon/01.jpg",
     fallback: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&q=85",
     excerpt:
       "FRC & Open Data Institute Innovation Sprint — XBRL-to-AI-ready JSON transformation layer for smarter financial data analytics.",
     tags: ["FinTech", "XBRL", "Hackathon"],
     linkedin:
       "https://www.linkedin.com/posts/vamshi-krishna-bandari-623580212_frchackthon-ai-fintech-activity-7443460515583934464-_NxX",
+    photos: [
+      { src: "/profile/assets/gallery/frc-hackathon/01.jpg", caption: "Innovation Sprint Kickoff" },
+      { src: "/profile/assets/gallery/frc-hackathon/02.jpg", caption: "Cross-functional Team Build" },
+      { src: "/profile/assets/gallery/frc-hackathon/03.jpg", caption: "Collaborative Prototyping" },
+      { src: "/profile/assets/gallery/frc-hackathon/04.jpg", caption: "FinTech · Data Engineering" },
+    ],
   },
   {
     id: "donorlink",
@@ -82,14 +100,53 @@ export const highlights = [
     category: "Healthcare",
     featured: false,
     bento: "standard",
-    image: "/profile/assets/highlights/donorlink.jpg",
+    image: "/profile/assets/gallery/donorlink/01.jpg",
     fallback: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1200&q=85",
     excerpt:
       "Full-stack agentic AI platform for living kidney donation — RAG-grounded education, multi-agent support, and explainable dropout-risk analytics.",
     tags: ["DonorLink", "RAG", "KidneyX"],
     linkedin: "https://github.com/VamshiKrishnaBandari07/donorlink",
+    photos: [
+      { src: "/profile/assets/gallery/donorlink/01.jpg", caption: "Clinical AI Platform" },
+      { src: "/profile/assets/gallery/donorlink/02.jpg", caption: "Healthcare Innovation" },
+      { src: "/profile/assets/gallery/donorlink/03.jpg", caption: "Decision Support Research" },
+      { src: "/profile/assets/gallery/donorlink/04.jpg", caption: "KidneyX · Team VK7" },
+    ],
+  },
+  {
+    id: "profile",
+    title: "Professional Profile",
+    location: "London, United Kingdom",
+    date: "2025",
+    category: "Portrait",
+    featured: false,
+    bento: "standard",
+    image: "/profile/assets/gallery/profile/01.jpg",
+    fallback: "/profile/assets/profile.jpg",
+    excerpt: "MSc Artificial Intelligence graduate · University of Roehampton · Applied ML research & engineering.",
+    tags: ["MSc AI", "Roehampton", "London"],
+    linkedin: "https://www.linkedin.com/in/vamshi-krishna-bandari-623580212",
+    photos: [{ src: "/profile/assets/gallery/profile/01.jpg", caption: "Vamshi Krishna Bandari · MSc AI" }],
   },
 ];
+
+/** Flat list of every photo for masonry wall & lightbox */
+export function getAllPhotos(highlights) {
+  return highlights.flatMap((event) =>
+    event.photos.map((photo, photoIndex) => ({
+      ...photo,
+      id: `${event.id}-${photoIndex}`,
+      eventId: event.id,
+      title: event.title,
+      category: event.category,
+      location: event.location,
+      date: event.date,
+      linkedin: event.linkedin,
+      excerpt: event.excerpt,
+      fallback: event.fallback,
+    }))
+  );
+}
 
 export const achievements = [
   {

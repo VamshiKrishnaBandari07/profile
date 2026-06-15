@@ -5,6 +5,7 @@ import {
   stats,
   skills,
   highlights,
+  getAllPhotos,
   projects,
   timeline,
   achievements,
@@ -13,7 +14,7 @@ import {
 import "./style.css";
 
 initScene(document.getElementById("bg-canvas"));
-initGallery(highlights);
+initGallery(highlights, getAllPhotos(highlights));
 
 // ─── Nav & scroll ───
 const nav = document.getElementById("nav");

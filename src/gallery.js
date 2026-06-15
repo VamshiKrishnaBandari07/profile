@@ -1,11 +1,13 @@
-/** Advanced photo gallery — bento grid, spotlight, lightbox */
+/** Multi-photo gallery — albums, masonry wall, spotlight carousel, lightbox */
 
-export function initGallery(highlights) {
+export function initGallery(highlights, allPhotos) {
   const spotlight = document.getElementById("spotlight");
   const bento = document.getElementById("bento-gallery");
   const filmstrip = document.getElementById("filmstrip");
   const filters = document.getElementById("photo-filters");
   const lightbox = document.getElementById("lightbox");
+  const photoWall = document.getElementById("photo-wall");
+  const albums = document.getElementById("event-albums");
 
   if (!bento) return;
 
@@ -13,8 +15,10 @@ export function initGallery(highlights) {
   let activeFilter = "All";
   let lightboxIndex = 0;
   let filtered = [...highlights];
+  let filteredPhotos = [...allPhotos];
+  let spotlightPhotoIndex = 0;
+  let spotlightEvent = filtered[0];
 
-  // Filter pills
   categories.forEach((cat) => {
     const btn = document.createElement("button");
     btn.className = `photo-filter${cat === "All" ? " photo-filter--active" : ""}`;
@@ -32,24 +36,53 @@ export function initGallery(highlights) {
     render();
   });
 
-  function getFiltered() {
+  function getFilteredEvents() {
     return activeFilter === "All" ? highlights : highlights.filter((h) => h.category === activeFilter);
   }
 
-  function renderSpotlight(item, index) {
+  function getFilteredPhotos() {
+    return activeFilter === "All" ? allPhotos : allPhotos.filter((p) => p.category === activeFilter);
+  }
+
+  function photoIndexInFiltered(photo) {
+    return filteredPhotos.findIndex((p) => p.id === photo.id);
+  }
+
+  function renderSpotlight(event, eventIndex, photoIdx = 0) {
     if (!spotlight) return;
+    spotlightEvent = event;
+    spotlightPhotoIndex = photoIdx;
+    const photo = event.photos[photoIdx] || event.photos[0];
+    const globalIdx = photoIndexInFiltered({
+      id: `${event.id}-${photoIdx}`,
+      eventId: event.id,
+    });
+    const lbIdx = filteredPhotos.findIndex((p) => p.eventId === event.id && p.src === photo.src);
+
     spotlight.innerHTML = `
-      <div class="spotlight__visual" data-index="${index}">
-        <img src="${item.image}" alt="${item.title}" onerror="this.src='${item.fallback}'" />
+      <div class="spotlight__visual" data-event="${event.id}">
+        <div class="spotlight__slides">
+          ${event.photos
+            .map(
+              (p, i) => `
+            <div class="spotlight__slide${i === photoIdx ? " spotlight__slide--active" : ""}" data-photo="${i}">
+              <img src="${p.src}" alt="${p.caption}" onerror="this.src='${event.fallback}'" />
+            </div>`
+            )
+            .join("")}
+        </div>
         <div class="spotlight__overlay">
-          <span class="spotlight__category">${item.category}</span>
-          <h3>${item.title}</h3>
-          <p>${item.excerpt}</p>
+          <span class="spotlight__category">${event.category} · ${event.photos.length} photos</span>
+          <h3>${event.title}</h3>
+          <p class="spotlight__caption">${photo.caption}</p>
+          <p>${event.excerpt}</p>
           <div class="spotlight__meta">
-            <time>${item.date} · ${item.location}</time>
-            <a href="${item.linkedin}" target="_blank" rel="noopener">View on LinkedIn →</a>
+            <time>${event.date} · ${event.location}</time>
+            <a href="${event.linkedin}" target="_blank" rel="noopener">View on LinkedIn →</a>
           </div>
         </div>
+        ${event.photos.length > 1 ? `<div class="spotlight__dots">${event.photos.map((_, i) => `<button class="spotlight__dot${i === photoIdx ? " spotlight__dot--active" : ""}" data-dot="${i}" aria-label="Photo ${i + 1}"></button>`).join("")}</div>` : ""}
+        ${event.photos.length > 1 ? `<button class="spotlight__nav spotlight__nav--prev" aria-label="Previous photo">‹</button><button class="spotlight__nav spotlight__nav--next" aria-label="Next photo">›</button>` : ""}
         <button class="spotlight__expand" aria-label="Expand photo">⤢</button>
       </div>
       <div class="spotlight__thumbs" id="spotlight-thumbs"></div>
@@ -58,30 +91,61 @@ export function initGallery(highlights) {
     const thumbs = spotlight.querySelector("#spotlight-thumbs");
     filtered.forEach((h, i) => {
       const t = document.createElement("button");
-      t.className = `spotlight__thumb${i === index ? " spotlight__thumb--active" : ""}`;
-      t.innerHTML = `<img src="${h.image}" alt="" onerror="this.src='${h.fallback}'" /><span>${h.category}</span>`;
-      t.addEventListener("click", () => renderSpotlight(h, i));
+      t.className = `spotlight__thumb${h.id === event.id ? " spotlight__thumb--active" : ""}`;
+      t.innerHTML = `
+        <img src="${h.image}" alt="" onerror="this.src='${h.fallback}'" />
+        <span>${h.category}</span>
+        <em>${h.photos.length}</em>`;
+      t.addEventListener("click", () => renderSpotlight(h, i, 0));
       thumbs.appendChild(t);
     });
 
-    spotlight.querySelector(".spotlight__visual")?.addEventListener("click", (e) => {
-      if (e.target.closest("a")) return;
-      openLightbox(index);
+    const goPhoto = (idx) => {
+      const next = (idx + event.photos.length) % event.photos.length;
+      renderSpotlight(event, eventIndex, next);
+    };
+
+    spotlight.querySelector(".spotlight__nav--prev")?.addEventListener("click", (e) => {
+      e.stopPropagation();
+      goPhoto(photoIdx - 1);
     });
-    spotlight.querySelector(".spotlight__expand")?.addEventListener("click", () => openLightbox(index));
+    spotlight.querySelector(".spotlight__nav--next")?.addEventListener("click", (e) => {
+      e.stopPropagation();
+      goPhoto(photoIdx + 1);
+    });
+    spotlight.querySelectorAll(".spotlight__dot").forEach((dot) => {
+      dot.addEventListener("click", (e) => {
+        e.stopPropagation();
+        goPhoto(+dot.dataset.dot);
+      });
+    });
+
+    spotlight.querySelector(".spotlight__visual")?.addEventListener("click", (e) => {
+      if (e.target.closest("a, button")) return;
+      openLightbox(lbIdx >= 0 ? lbIdx : 0);
+    });
+    spotlight.querySelector(".spotlight__expand")?.addEventListener("click", (e) => {
+      e.stopPropagation();
+      openLightbox(lbIdx >= 0 ? lbIdx : 0);
+    });
   }
 
   function renderBento() {
     bento.innerHTML = "";
     filtered.forEach((h, i) => {
+      const stack = h.photos.slice(0, 3);
       const el = document.createElement("article");
       el.className = `bento__item bento__item--${h.bento} reveal`;
-      el.dataset.index = i;
       el.innerHTML = `
-        <div class="bento__image">
-          <img src="${h.image}" alt="${h.title}" loading="lazy" onerror="this.src='${h.fallback}'" />
-          <div class="bento__shine"></div>
+        <div class="bento__stack">
+          ${stack
+            .map(
+              (p, si) =>
+                `<img class="bento__stack-img bento__stack-img--${si}" src="${p.src}" alt="" loading="lazy" onerror="this.src='${h.fallback}'" />`
+            )
+            .join("")}
         </div>
+        <div class="bento__count">${h.photos.length} photos</div>
         <div class="bento__content">
           <span class="bento__badge">${h.category}</span>
           <h3>${h.title}</h3>
@@ -92,41 +156,94 @@ export function initGallery(highlights) {
           </div>
           <a href="${h.linkedin}" target="_blank" rel="noopener" class="bento__link">LinkedIn →</a>
         </div>
-        <button class="bento__zoom" aria-label="View full size">⤢</button>
+        <button class="bento__zoom" aria-label="View album">⤢</button>
       `;
 
       el.querySelector(".bento__zoom")?.addEventListener("click", (e) => {
         e.stopPropagation();
-        openLightbox(i);
+        const idx = photoIndexInFiltered({ id: `${h.id}-0`, eventId: h.id });
+        openLightbox(idx >= 0 ? idx : 0);
       });
       el.addEventListener("click", (e) => {
         if (e.target.closest("a") || e.target.closest(".bento__zoom")) return;
-        renderSpotlight(h, i);
+        renderSpotlight(h, i, 0);
         spotlight?.scrollIntoView({ behavior: "smooth", block: "nearest" });
       });
-
       bento.appendChild(el);
     });
+    observeReveal(".bento__item.reveal");
+  }
 
-    document.querySelectorAll(".bento__item.reveal").forEach((el) => {
-      if (!el.classList.contains("reveal--visible")) {
-        const obs = new IntersectionObserver(
-          (entries) => entries.forEach((e) => e.isIntersecting && e.target.classList.add("reveal--visible")),
-          { threshold: 0.08 }
-        );
-        obs.observe(el);
-      }
+  function renderPhotoWall() {
+    if (!photoWall) return;
+    photoWall.innerHTML = "";
+    const sizes = ["tall", "wide", "standard", "standard", "tall", "wide", "standard"];
+    filteredPhotos.forEach((p, i) => {
+      const el = document.createElement("button");
+      el.className = `wall__item wall__item--${sizes[i % sizes.length]} reveal`;
+      el.type = "button";
+      el.innerHTML = `
+        <img src="${p.src}" alt="${p.caption}" loading="lazy" onerror="this.src='${p.fallback}'" />
+        <div class="wall__overlay">
+          <span class="wall__cat">${p.category}</span>
+          <strong>${p.caption}</strong>
+        </div>`;
+      el.addEventListener("click", () => openLightbox(i));
+      photoWall.appendChild(el);
     });
+    observeReveal(".wall__item.reveal");
+  }
+
+  function renderAlbums() {
+    if (!albums) return;
+    albums.innerHTML = "";
+    filtered.forEach((event, ei) => {
+      const el = document.createElement("article");
+      el.className = "album reveal";
+      el.innerHTML = `
+        <header class="album__head">
+          <div>
+            <span class="album__cat">${event.category}</span>
+            <h3>${event.title}</h3>
+            <p>${event.date} · ${event.location}</p>
+          </div>
+          <span class="album__count">${event.photos.length} photos</span>
+        </header>
+        <div class="album__scroll">
+          ${event.photos
+            .map(
+              (p, pi) => `
+            <button class="album__photo" type="button" data-event="${ei}" data-photo="${pi}">
+              <img src="${p.src}" alt="${p.caption}" loading="lazy" onerror="this.src='${event.fallback}'" />
+              <span>${p.caption}</span>
+            </button>`
+            )
+            .join("")}
+        </div>
+        <a href="${event.linkedin}" target="_blank" rel="noopener" class="album__link">View source →</a>
+      `;
+
+      el.querySelectorAll(".album__photo").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const idx = filteredPhotos.findIndex(
+            (fp) => fp.eventId === event.id && fp.src === event.photos[+btn.dataset.photo].src
+          );
+          openLightbox(idx >= 0 ? idx : 0);
+        });
+      });
+      albums.appendChild(el);
+    });
+    observeReveal(".album.reveal");
   }
 
   function renderFilmstrip() {
     if (!filmstrip) return;
     filmstrip.innerHTML = "";
-    const items = [...highlights, ...highlights];
-    items.forEach((h) => {
+    const items = [...filteredPhotos, ...filteredPhotos];
+    items.forEach((p) => {
       const el = document.createElement("div");
       el.className = "filmstrip__item";
-      el.innerHTML = `<img src="${h.image}" alt="${h.title}" onerror="this.src='${h.fallback}'" />`;
+      el.innerHTML = `<img src="${p.src}" alt="${p.caption}" onerror="this.src='${p.fallback}'" />`;
       filmstrip.appendChild(el);
     });
   }
@@ -144,30 +261,28 @@ export function initGallery(highlights) {
   }
 
   function updateLightbox() {
-    const item = filtered[lightboxIndex];
+    const item = filteredPhotos[lightboxIndex];
     if (!item || !lightbox) return;
-    lightbox.querySelector(".lightbox__img").src = item.image;
-    lightbox.querySelector(".lightbox__img").onerror = () => {
-      lightbox.querySelector(".lightbox__img").src = item.fallback;
-    };
+    const img = lightbox.querySelector(".lightbox__img");
+    img.src = item.src;
+    img.onerror = () => { img.src = item.fallback; };
     lightbox.querySelector(".lightbox__title").textContent = item.title;
-    lightbox.querySelector(".lightbox__meta").textContent = `${item.date} · ${item.location}`;
+    lightbox.querySelector(".lightbox__caption").textContent = item.caption;
+    lightbox.querySelector(".lightbox__meta").textContent = `${item.date} · ${item.location} · ${item.category}`;
     lightbox.querySelector(".lightbox__link").href = item.linkedin;
-    lightbox.querySelector(".lightbox__counter").textContent = `${lightboxIndex + 1} / ${filtered.length}`;
+    lightbox.querySelector(".lightbox__counter").textContent = `${lightboxIndex + 1} / ${filteredPhotos.length}`;
   }
 
   lightbox?.querySelector(".lightbox__close")?.addEventListener("click", closeLightbox);
   lightbox?.querySelector(".lightbox__prev")?.addEventListener("click", () => {
-    lightboxIndex = (lightboxIndex - 1 + filtered.length) % filtered.length;
+    lightboxIndex = (lightboxIndex - 1 + filteredPhotos.length) % filteredPhotos.length;
     updateLightbox();
   });
   lightbox?.querySelector(".lightbox__next")?.addEventListener("click", () => {
-    lightboxIndex = (lightboxIndex + 1) % filtered.length;
+    lightboxIndex = (lightboxIndex + 1) % filteredPhotos.length;
     updateLightbox();
   });
-  lightbox?.addEventListener("click", (e) => {
-    if (e.target === lightbox) closeLightbox();
-  });
+  lightbox?.addEventListener("click", (e) => { if (e.target === lightbox) closeLightbox(); });
 
   document.addEventListener("keydown", (e) => {
     if (!lightbox?.classList.contains("lightbox--open")) return;
@@ -176,14 +291,28 @@ export function initGallery(highlights) {
     if (e.key === "ArrowRight") lightbox.querySelector(".lightbox__next")?.click();
   });
 
-  function render() {
-    filtered = getFiltered();
-    const featured = filtered.find((h) => h.featured) || filtered[0];
-    const idx = filtered.indexOf(featured);
-    renderSpotlight(featured, idx >= 0 ? idx : 0);
-    renderBento();
+  function observeReveal(selector) {
+    document.querySelectorAll(selector).forEach((el) => {
+      if (el.classList.contains("reveal--visible")) return;
+      const obs = new IntersectionObserver(
+        (entries) => entries.forEach((e) => e.isIntersecting && e.target.classList.add("reveal--visible")),
+        { threshold: 0.06 }
+      );
+      obs.observe(el);
+    });
   }
 
-  renderFilmstrip();
+  function render() {
+    filtered = getFilteredEvents();
+    filteredPhotos = getFilteredPhotos();
+    const featured = filtered.find((h) => h.featured) || filtered[0];
+    const idx = filtered.indexOf(featured);
+    renderSpotlight(featured, idx >= 0 ? idx : 0, 0);
+    renderBento();
+    renderPhotoWall();
+    renderAlbums();
+    renderFilmstrip();
+  }
+
   render();
 }

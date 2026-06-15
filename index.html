@@ -4,12 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vamshi Krishna Bandari | MSc AI · Research & Engineering</title>
-    <meta name="description" content="Portfolio of Vamshi Krishna Bandari — MSc Artificial Intelligence, applied ML researcher, Parliament AI Healthcare showcase participant, London innovation events." />
+    <meta name="description" content="Portfolio of Vamshi Krishna Bandari — MSc Artificial Intelligence, Parliament AI Healthcare showcase, London innovation events, applied ML research." />
+    <meta property="og:title" content="Vamshi Krishna Bandari | MSc AI Portfolio" />
+    <meta property="og:description" content="Machine learning research · Intelligent systems · Healthcare AI · London" />
+    <meta property="og:image" content="/profile/assets/profile.jpg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
   </head>
   <body>
+    <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
     <canvas id="bg-canvas" aria-hidden="true"></canvas>
 
     <nav class="nav" id="nav">
@@ -17,8 +21,8 @@
       <button class="nav__toggle" id="nav-toggle" aria-label="Menu"><span></span></button>
       <ul class="nav__links" id="nav-links">
         <li><a href="#about">About</a></li>
-        <li><a href="#achievements">Achievements</a></li>
         <li><a href="#highlights">Photos</a></li>
+        <li><a href="#achievements">Achievements</a></li>
         <li><a href="#certifications">Certifications</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#experience">Experience</a></li>
@@ -35,58 +39,69 @@
           <div class="hero__actions">
             <a href="https://www.linkedin.com/in/vamshi-krishna-bandari-623580212" target="_blank" rel="noopener" class="btn btn--primary">LinkedIn</a>
             <a href="https://github.com/VamshiKrishnaBandari07" target="_blank" rel="noopener" class="btn btn--ghost">GitHub</a>
-            <a href="#highlights" class="btn btn--ghost">View photos</a>
+            <a href="#highlights" class="btn btn--ghost">View gallery</a>
           </div>
+          <div class="hero__stats glass" id="hero-stats"></div>
         </div>
         <div class="hero__visual">
-          <div class="hero__photo-wrap glass">
-            <img
-              src="/profile/assets/profile.jpg"
-              alt="Vamshi Krishna Bandari"
-              class="hero__photo"
-              onerror="this.src='https://ui-avatars.com/api/?name=Vamshi+Krishna+Bandari&size=400&background=1e3a5f&color=fff&bold=true'"
-            />
-            <span class="hero__photo-badge">MSc AI · Roehampton</span>
+          <div class="hero__photo-ring">
+            <div class="hero__photo-wrap">
+              <img id="hero-photo" src="/profile/assets/profile.jpg" alt="Vamshi Krishna Bandari" class="hero__photo"
+                onerror="this.src='https://ui-avatars.com/api/?name=Vamshi+Krishna+Bandari&size=600&background=1e3a5f&color=fff&bold=true'" />
+            </div>
+            <div class="hero__orbit hero__orbit--1"></div>
+            <div class="hero__orbit hero__orbit--2"></div>
           </div>
-          <div class="hero__card glass">
-            <div class="hero__stat"><strong>13+</strong><span>AI Certifications</span></div>
-            <div class="hero__stat"><strong>Parliament</strong><span>Healthcare AI Showcase</span></div>
-            <div class="hero__stat"><strong>London</strong><span>Tech & Innovation</span></div>
+          <div class="hero__badges">
+            <span class="hero__badge">Parliament AI Showcase</span>
+            <span class="hero__badge">University of Roehampton</span>
+            <span class="hero__badge">KidneyX · Team VK7</span>
           </div>
+        </div>
+        <div class="hero__filmstrip-wrap" aria-hidden="true">
+          <div class="filmstrip" id="filmstrip"></div>
         </div>
       </section>
 
       <section id="about" class="section">
         <div class="container">
           <header class="section__head"><span class="section__num">01</span><h2>About</h2></header>
-          <div class="about__grid">
-            <p class="about__lead">Graduate researcher and engineer working at the intersection of <strong>machine learning</strong>, <strong>intelligent systems</strong>, and <strong>applied AI</strong> for complex, high-stakes environments.</p>
-            <p>Experience spans data engineering at Cognizant (Google Cloud migration, ETL pipelines, KPI dashboards), MSc research in deep learning and optimisation, and active participation in UK policy and innovation forums on AI in healthcare.</p>
-            <p>Currently: <strong>AI-Driven Business Development Intern</strong> at Crown Fund, applying data-driven insights to growth and innovation strategy.</p>
+          <div class="about__layout">
+            <div class="about__text">
+              <p class="about__lead">Graduate researcher and engineer working at the intersection of <strong>machine learning</strong>, <strong>intelligent systems</strong>, and <strong>applied AI</strong> for complex, high-stakes environments.</p>
+              <p>Experience spans data engineering at Cognizant (Google Cloud migration, ETL pipelines, KPI dashboards), MSc research in deep learning and optimisation, and active participation in UK policy and innovation forums on AI in healthcare.</p>
+              <p>Currently: <strong>AI-Driven Business Development Intern</strong> at Crown Fund, applying data-driven insights to growth and innovation strategy.</p>
+            </div>
+            <div class="about__skills glass">
+              <h3>Core Expertise</h3>
+              <div id="skills-bars"></div>
+            </div>
           </div>
+        </div>
+      </section>
+
+      <section id="highlights" class="section section--photos">
+        <div class="container">
+          <header class="section__head"><span class="section__num">02</span><h2>Photos & Event Highlights</h2></header>
+          <p class="section__intro">Parliament AI Showcase, London innovation events, hackathons, and research — captured from my professional journey.</p>
+          <div class="photo-filters" id="photo-filters"></div>
+          <div class="spotlight" id="spotlight"></div>
+          <div class="bento" id="bento-gallery"></div>
         </div>
       </section>
 
       <section id="achievements" class="section section--dark">
         <div class="container">
-          <header class="section__head"><span class="section__num">02</span><h2>Achievements & Milestones</h2></header>
+          <header class="section__head"><span class="section__num">03</span><h2>Achievements & Milestones</h2></header>
           <p class="section__intro">Key professional, academic, and leadership milestones across policy forums, industry, and research.</p>
           <div class="achievements" id="achievements-grid"></div>
         </div>
       </section>
 
-      <section id="highlights" class="section">
-        <div class="container">
-          <header class="section__head"><span class="section__num">03</span><h2>Photos & Event Highlights</h2></header>
-          <p class="section__intro">Parliament AI Showcase, London innovation events, hackathons, and research — add your LinkedIn photos to <code>public/assets/highlights/</code></p>
-          <div class="gallery" id="gallery"></div>
-        </div>
-      </section>
-
-      <section id="certifications" class="section section--dark">
+      <section id="certifications" class="section">
         <div class="container">
           <header class="section__head"><span class="section__num">04</span><h2>AI & Data Certifications</h2></header>
-          <p class="section__intro">Verified credentials in artificial intelligence, generative AI, AI agents, ethics, and data analytics from Microsoft, Google, IBM, Oracle, and industry simulations.</p>
+          <p class="section__intro">Verified credentials in artificial intelligence, generative AI, AI agents, ethics, and data analytics.</p>
           <div class="cert-filters" id="cert-filters"></div>
           <div class="cert-grid" id="certifications"></div>
           <p class="cert__all">
@@ -95,21 +110,21 @@
         </div>
       </section>
 
-      <section id="projects" class="section">
+      <section id="projects" class="section section--dark">
         <div class="container">
           <header class="section__head"><span class="section__num">05</span><h2>Selected Work</h2></header>
           <div class="cards" id="projects"></div>
         </div>
       </section>
 
-      <section id="experience" class="section section--dark">
+      <section id="experience" class="section">
         <div class="container">
           <header class="section__head"><span class="section__num">06</span><h2>Experience & Education</h2></header>
           <div class="timeline" id="timeline"></div>
         </div>
       </section>
 
-      <section id="contact" class="section">
+      <section id="contact" class="section section--dark">
         <div class="container contact">
           <header class="section__head"><span class="section__num">07</span><h2>Contact</h2></header>
           <p>Open to research collaborations, graduate opportunities, and applied AI engineering roles.</p>
@@ -122,9 +137,24 @@
       </section>
     </main>
 
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer">
+      <button class="lightbox__close" aria-label="Close">×</button>
+      <button class="lightbox__prev" aria-label="Previous">‹</button>
+      <button class="lightbox__next" aria-label="Next">›</button>
+      <div class="lightbox__content">
+        <img class="lightbox__img" src="" alt="" />
+        <div class="lightbox__info">
+          <h3 class="lightbox__title"></h3>
+          <p class="lightbox__meta"></p>
+          <span class="lightbox__counter"></span>
+          <a class="lightbox__link" href="#" target="_blank" rel="noopener">View source →</a>
+        </div>
+      </div>
+    </div>
+
     <footer class="footer">
-      <p>&copy; 2026 Vamshi Krishna Bandari · Built with Three.js</p>
-      <p class="footer__note">Photos: replace files in <code>public/assets/highlights/</code> and <code>public/assets/profile.jpg</code> with your LinkedIn images.</p>
+      <p>&copy; 2026 Vamshi Krishna Bandari · MSc AI · London</p>
+      <p class="footer__note">Built with Three.js · <a href="https://github.com/VamshiKrishnaBandari07/profile" target="_blank" rel="noopener">Source</a></p>
     </footer>
 
     <script type="module" src="/src/main.js"></script>

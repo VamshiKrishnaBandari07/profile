@@ -12,7 +12,7 @@ export const profile = {
 
 export const stats = [
   { value: 13, suffix: "+", label: "AI Certifications" },
-  { value: 17, suffix: "", label: "Photos & Moments" },
+  { value: 15, suffix: "", label: "Photos & Moments" },
   { value: 40, suffix: "%", label: "Data Integrity Gain · Cognizant" },
   { value: 4, suffix: "", label: "Major Events & Showcases" },
 ];
@@ -29,45 +29,43 @@ export const skills = [
 export const highlights = [
   {
     id: "parliament",
-    title: "UK Parliament · AI in Healthcare Showcase",
-    location: "Palace of Westminster, London",
+    title: "Chamber UK · Policy & Parliament Forum",
+    location: "London, United Kingdom",
     date: "2025",
     category: "Policy",
     featured: true,
     bento: "hero",
-    image: "/profile/assets/gallery/parliament/01.jpg",
-    fallback: "https://images.unsplash.com/photo-1529651737248-dad5a910bdb2?w=1200&q=85",
+    image: "/profile/assets/gallery/parliament/01.png",
+    fallback: "/profile/assets/gallery/parliament/01.png",
     excerpt:
-      "Attended the AI in Healthcare & Life Sciences Parliamentary Showcase led by Steve Yemm MP — discussions on scaling AI adoption across the NHS and delivering measurable patient outcomes.",
-    tags: ["NHS", "Healthcare AI", "Public Policy"],
+      "Chamber UK & Curia policy forum — turning policy into practice alongside Westminster leaders, with data-driven discussions on AI adoption across public services and healthcare.",
+    tags: ["Chamber UK", "Public Policy", "Westminster"],
     linkedin:
       "https://www.linkedin.com/posts/vamshi-krishna-bandari-623580212_ai-aidevelopment-aiadoption-activity-7449937731247542273-tCUW",
     photos: [
-      { src: "/profile/assets/gallery/parliament/01.jpg", caption: "Westminster · Policy Forum" },
-      { src: "/profile/assets/gallery/parliament/02.jpg", caption: "London · Institutional Setting" },
-      { src: "/profile/assets/gallery/parliament/03.jpg", caption: "Healthcare AI Dialogue" },
-      { src: "/profile/assets/gallery/parliament/04.jpg", caption: "Parliamentary Showcase" },
+      { src: "/profile/assets/gallery/parliament/01.png", caption: "Chamber UK · Westminster Podium" },
+      { src: "/profile/assets/gallery/parliament/02.png", caption: "Turning Policy Into Practice" },
     ],
   },
   {
     id: "london-tech",
-    title: "London Tech & Innovation Ecosystem",
+    title: "London Tech Week & Innovation Events",
     location: "London, United Kingdom",
-    date: "2025",
+    date: "2026",
     category: "Innovation",
     featured: true,
     bento: "wide",
-    image: "/profile/assets/gallery/london-tech/01.jpg",
-    fallback: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1200&q=85",
+    image: "/profile/assets/gallery/london-tech/01.png",
+    fallback: "/profile/assets/gallery/london-tech/01.png",
     excerpt:
-      "Engaged with London's technology community — founders, policymakers, and engineers shaping AI, fintech, and digital transformation across the UK.",
-    tags: ["London Tech", "Innovation", "AI Ecosystem"],
+      "London Tech Week 2026 EXPO · London Lab Live · Formula E × Google Cloud showcase — connecting with founders, enterprise partners, and the UK innovation ecosystem.",
+    tags: ["London Tech Week", "Lab Live", "Google Cloud"],
     linkedin: "https://www.linkedin.com/in/vamshi-krishna-bandari-623580212/recent-activity/all/",
     photos: [
-      { src: "/profile/assets/gallery/london-tech/01.jpg", caption: "London Tech Summit" },
-      { src: "/profile/assets/gallery/london-tech/02.jpg", caption: "Innovation Networking" },
-      { src: "/profile/assets/gallery/london-tech/03.jpg", caption: "Startup & Enterprise Forum" },
-      { src: "/profile/assets/gallery/london-tech/04.jpg", caption: "London Skyline · FinTech Hub" },
+      { src: "/profile/assets/gallery/london-tech/01.png", caption: "London Tech Week 2026 · EXPO" },
+      { src: "/profile/assets/gallery/london-tech/02.png", caption: "London Lab Live · Visitor" },
+      { src: "/profile/assets/gallery/london-tech/03.png", caption: "Formula E × Google Cloud Showcase" },
+      { src: "/profile/assets/gallery/london-tech/04.png", caption: "LTW Badge · University of Roehampton" },
     ],
   },
   {

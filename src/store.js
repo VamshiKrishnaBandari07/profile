@@ -2,20 +2,21 @@ const BASE = import.meta.env.BASE_URL;
 const API = `${BASE}api`.replace("//api", "/api").replace("/profile/api", "/api");
 
 export function getAllPhotos(highlights) {
-  return highlights.flatMap((event) =>
-    (event.photos || []).map((photo, i) => ({
-      ...photo,
-      id: `${event.id}-${i}`,
-      eventId: event.id,
-      title: event.title,
-      category: event.category,
-      location: event.location,
-      date: event.date,
-      linkedin: event.linkedin,
-      excerpt: event.excerpt,
-      fallback: event.image || photo.src,
-    }))
-  );
+  return highlights
+    .filter((event) => event.id !== "profile")
+    .flatMap((event) =>
+      (event.photos || []).map((photo, i) => ({
+        ...photo,
+        id: `${event.id}-${i}`,
+        eventId: event.id,
+        title: event.title,
+        category: event.category,
+        location: event.location,
+        date: event.date,
+        linkedin: event.linkedin,
+        fallback: event.image || photo.src,
+      }))
+    );
 }
 
 export function photoCount(highlights) {

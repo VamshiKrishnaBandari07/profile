@@ -1,50 +1,37 @@
 import { initScene } from "./scene3d.js";
-import { initPhoto3D } from "./photo3d.js";
 import { initGallery } from "./gallery.js";
 import { initAdmin } from "./admin.js";
 import { loadSiteData, getAllPhotos, normalizeHighlights, photoCount } from "./store.js";
-import {
-  stats as defaultStats,
-  skills,
-  achievements,
-  certifications,
-  projects,
-  timeline,
-} from "./data.js";
+import { skills, achievements, certifications, projects, timeline } from "./data.js";
 import "./style.css";
-
-let sceneCtx = null;
-let photo3dCtx = null;
-let galleryRefresh = null;
 
 async function bootstrap() {
   const raw = await loadSiteData();
   const highlights = normalizeHighlights(raw.highlights || []);
   const profile = raw.profile || {};
   const about = raw.about || {};
-  let allPhotos = getAllPhotos(highlights);
+  const allPhotos = getAllPhotos(highlights);
 
   applyProfile(profile);
   applyAbout(about);
   applyBadges(profile.badges || []);
 
+  const eventCount = highlights.filter((h) => (h.photos || []).length > 0).length;
   const stats = [
     { value: 13, suffix: "+", label: "AI Certifications" },
-    { value: photoCount(highlights), suffix: "", label: "Photos & Moments" },
+    { value: photoCount(highlights), suffix: "", label: "Event Photos" },
     { value: 40, suffix: "%", label: "Data Integrity Gain" },
-    { value: highlights.length, suffix: "", label: "Event Albums" },
+    { value: eventCount, suffix: "", label: "Featured Events" },
   ];
 
   refreshVisuals(highlights, allPhotos);
   renderStaticSections(stats);
-
   initAdmin({ profile, about, highlights }, (data, saved) => {
     const h = normalizeHighlights(data.highlights);
-    const photos = getAllPhotos(h);
     applyProfile(data.profile);
     applyAbout(data.about);
     applyBadges(data.profile.badges || []);
-    refreshVisuals(h, photos);
+    refreshVisuals(h, getAllPhotos(h));
     if (saved) setTimeout(() => location.reload(), 600);
   });
 
@@ -87,32 +74,12 @@ function applyBadges(badges) {
 }
 
 function refreshVisuals(highlights, allPhotos) {
-  const urls = allPhotos.map((p) => p.src);
-  initScene(document.getElementById("bg-canvas"), urls);
+  initScene(document.getElementById("bg-canvas"));
 
-  document.getElementById("photo-filters") && (document.getElementById("photo-filters").innerHTML = "");
-  document.getElementById("spotlight") && (document.getElementById("spotlight").innerHTML = "");
-  document.getElementById("photo-wall") && (document.getElementById("photo-wall").innerHTML = "");
-  document.getElementById("filmstrip") && (document.getElementById("filmstrip").innerHTML = "");
+  const filters = document.getElementById("photo-filters");
+  if (filters) filters.innerHTML = "";
 
-  galleryRefresh = initGallery(highlights, allPhotos);
-
-  const photoCanvas = document.getElementById("photo-3d-canvas");
-  if (photoCanvas) {
-    initPhoto3D(photoCanvas, allPhotos, openLightboxForPhoto);
-  }
-}
-
-function openLightboxForPhoto(photo) {
-  const lb = document.getElementById("lightbox");
-  if (!lb) return;
-  lb.classList.add("lightbox--open");
-  document.body.style.overflow = "hidden";
-  lb.querySelector(".lightbox__img").src = photo.src;
-  lb.querySelector(".lightbox__title").textContent = photo.title;
-  lb.querySelector(".lightbox__caption").textContent = photo.caption;
-  lb.querySelector(".lightbox__meta").textContent = `${photo.date} · ${photo.location}`;
-  lb.querySelector(".lightbox__link").href = photo.linkedin;
+  initGallery(highlights, allPhotos);
 }
 
 function renderStaticSections(stats) {
@@ -247,16 +214,12 @@ function initPageUX() {
       const id = a.getAttribute("href");
       if (id === "#") return;
       const target = document.querySelector(id);
-      if (target) { e.preventDefault(); target.scrollIntoView({ behavior: "smooth" }); }
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: "smooth" });
+      }
     });
   });
-
-  const lb = document.getElementById("lightbox");
-  lb?.querySelector(".lightbox__close")?.addEventListener("click", () => {
-    lb.classList.remove("lightbox--open");
-    document.body.style.overflow = "";
-  });
-  lb?.addEventListener("click", (e) => { if (e.target === lb) { lb.classList.remove("lightbox--open"); document.body.style.overflow = ""; } });
 }
 
 bootstrap();

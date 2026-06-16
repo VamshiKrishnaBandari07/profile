@@ -7,24 +7,24 @@ export const profile = {
   github: "https://github.com/VamshiKrishnaBandari07",
   photo: "/profile/assets/profile.jpg",
   tagline:
-    "Artificial intelligence enthusiast · Machine learning, generative AI & intelligent systems · From B.Tech EEE to applied research & engineering",
+    "Artificial Intelligence enthusiast building intelligent systems across machine learning, generative AI, and applied engineering.",
 };
 
 export const about = {
   lead:
-    "I am an artificial intelligence enthusiast and MSc graduate who combines research discipline with hands-on engineering — building intelligent systems that turn data into practical, trustworthy outcomes.",
+    "Artificial Intelligence enthusiast with an engineering foundation and a research-oriented MSc — focused on building reliable, data-driven intelligent systems.",
   paragraphs: [
-    "My foundation is a B.Tech in Electrical & Electronics Engineering from the Institute of Aeronautical Engineering (IARE), Hyderabad, where I worked on smart energy metering and placed 2nd in an inter-college data analytics hackathon. I strengthened that base at Cognizant as a Process Executive on Google Cloud — designing ETL pipelines, automating KPI dashboards, and improving data integrity by 40%.",
-    "I am now completing an MSc in Artificial Intelligence at the University of Roehampton, London, with focus on machine learning, deep learning, generative AI, and AI systems engineering. I actively engage with London's innovation ecosystem — London Tech Week, policy forums, and fintech hackathons — while exploring agentic AI, predictive analytics, and full-stack product development.",
-    "Currently: AI-Driven Business Development Intern at Crown Fund, applying data-driven insights, AI tooling, and market analysis to growth and innovation strategy.",
+    "I hold a B.Tech in Electrical and Electronics Engineering from the Institute of Aeronautical Engineering (IARE), Hyderabad, where I delivered a smart energy metering project and achieved 2nd place in an inter-college data analytics hackathon. At Cognizant on Google Cloud, I engineered ETL pipelines and automated KPI dashboards, improving data integrity by 40%.",
+    "I am completing an MSc in Artificial Intelligence at the University of Roehampton, London, specialising in machine learning, deep learning, generative AI, and intelligent agent systems. I actively participate in London's innovation ecosystem — including London Tech Week, policy forums, and fintech hackathons.",
+    "Currently serving as an AI-Driven Business Development Intern at Crown Fund, where I apply data analytics, AI tooling, and market research to support growth and innovation strategy.",
   ],
 };
 
 export const stats = [
   { value: 13, suffix: "+", label: "AI Certifications" },
-  { value: 15, suffix: "", label: "Photos & Moments" },
+  { value: 6, suffix: "", label: "Event Photos" },
   { value: 40, suffix: "%", label: "Data Integrity Gain · Cognizant" },
-  { value: 4, suffix: "", label: "Major Events & Showcases" },
+  { value: 2, suffix: "", label: "Featured Events" },
 ];
 
 export const skills = [
@@ -80,80 +80,53 @@ export const highlights = [
   },
   {
     id: "frc-hackathon",
-    title: "FRC & ODI Innovation Sprint",
+    title: "FRC and ODI Innovation Sprint",
     location: "London, United Kingdom",
     date: "2025",
     category: "FinTech",
     featured: false,
-    bento: "tall",
     image: "/profile/assets/gallery/frc-hackathon/01.jpg",
-    fallback: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&q=85",
     excerpt:
-      "FRC & Open Data Institute Innovation Sprint — XBRL-to-AI-ready JSON transformation layer for smarter financial data analytics.",
+      "Financial Reporting Council and Open Data Institute Innovation Sprint — XBRL-to-AI-ready JSON transformation for financial analytics.",
     tags: ["FinTech", "XBRL", "Hackathon"],
     linkedin:
       "https://www.linkedin.com/posts/vamshi-krishna-bandari-623580212_frchackthon-ai-fintech-activity-7443460515583934464-_NxX",
-    photos: [
-      { src: "/profile/assets/gallery/frc-hackathon/01.jpg", caption: "Innovation Sprint Kickoff" },
-      { src: "/profile/assets/gallery/frc-hackathon/02.jpg", caption: "Cross-functional Team Build" },
-      { src: "/profile/assets/gallery/frc-hackathon/03.jpg", caption: "Collaborative Prototyping" },
-      { src: "/profile/assets/gallery/frc-hackathon/04.jpg", caption: "FinTech · Data Engineering" },
-    ],
+    photos: [],
   },
   {
     id: "donorlink",
-    title: "DonorLink · Clinical Decision Support",
-    location: "Research Prototype · Team VK7",
+    title: "DonorLink · Agentic AI Platform",
+    location: "Research Prototype",
     date: "2026",
-    category: "Healthcare",
+    category: "AI Systems",
     featured: false,
-    bento: "standard",
     image: "/profile/assets/gallery/donorlink/01.jpg",
-    fallback: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1200&q=85",
     excerpt:
-      "Full-stack agentic AI platform for living kidney donation — RAG-grounded education, multi-agent support, and explainable dropout-risk analytics.",
-    tags: ["DonorLink", "RAG", "KidneyX"],
+      "Full-stack agentic AI platform with RAG-grounded knowledge, multi-agent workflows, and predictive analytics.",
+    tags: ["DonorLink", "RAG", "Agents"],
     linkedin: "https://github.com/VamshiKrishnaBandari07/donorlink",
-    photos: [
-      { src: "/profile/assets/gallery/donorlink/01.jpg", caption: "Clinical AI Platform" },
-      { src: "/profile/assets/gallery/donorlink/02.jpg", caption: "Healthcare Innovation" },
-      { src: "/profile/assets/gallery/donorlink/03.jpg", caption: "Decision Support Research" },
-      { src: "/profile/assets/gallery/donorlink/04.jpg", caption: "KidneyX · Team VK7" },
-    ],
-  },
-  {
-    id: "profile",
-    title: "Professional Profile",
-    location: "London, United Kingdom",
-    date: "2025",
-    category: "Portrait",
-    featured: false,
-    bento: "standard",
-    image: "/profile/assets/gallery/profile/01.jpg",
-    fallback: "/profile/assets/profile.jpg",
-    excerpt: "MSc Artificial Intelligence graduate · University of Roehampton · Applied ML research & engineering.",
-    tags: ["MSc AI", "Roehampton", "London"],
-    linkedin: "https://www.linkedin.com/in/vamshi-krishna-bandari-623580212",
-    photos: [{ src: "/profile/assets/gallery/profile/01.jpg", caption: "Vamshi Krishna Bandari · MSc AI" }],
+    photos: [],
   },
 ];
 
-/** Flat list of every photo for masonry wall & lightbox */
+/** Flat list of gallery photos (excludes profile album) */
 export function getAllPhotos(highlights) {
-  return highlights.flatMap((event) =>
-    event.photos.map((photo, photoIndex) => ({
-      ...photo,
-      id: `${event.id}-${photoIndex}`,
-      eventId: event.id,
-      title: event.title,
-      category: event.category,
-      location: event.location,
-      date: event.date,
-      linkedin: event.linkedin,
-      excerpt: event.excerpt,
-      fallback: event.fallback,
-    }))
-  );
+  return highlights
+    .filter((event) => event.id !== "profile")
+    .flatMap((event) =>
+      (event.photos || []).map((photo, photoIndex) => ({
+        ...photo,
+        id: `${event.id}-${photoIndex}`,
+        eventId: event.id,
+        title: event.title,
+        category: event.category,
+        location: event.location,
+        date: event.date,
+        linkedin: event.linkedin,
+        excerpt: event.excerpt,
+        fallback: event.fallback,
+      }))
+    );
 }
 
 export const achievements = [

@@ -40,7 +40,7 @@ export function initScene(canvas) {
 
   const core = new THREE.Mesh(
     new THREE.IcosahedronGeometry(5, 1),
-    new THREE.MeshBasicMaterial({ color: 0x4f8cff, wireframe: true, transparent: true, opacity: 0.18 })
+    new THREE.MeshBasicMaterial({ color: 0x38bdf8, wireframe: true, transparent: true, opacity: 0.15 })
   );
   scene.add(core);
 

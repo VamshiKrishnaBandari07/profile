@@ -3,21 +3,21 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vamshi Krishna Bandari | MSc AI · AI Enthusiast & Engineer</title>
-    <meta name="description" content="Portfolio of Vamshi Krishna Bandari — MSc AI, B.Tech EEE (IARE), artificial intelligence enthusiast. Machine learning, generative AI, agentic systems, and full-stack engineering." />
-    <meta property="og:title" content="Vamshi Krishna Bandari | AI Enthusiast & Engineer" />
+    <title>Vamshi Krishna Bandari | AI Engineer · MSc Artificial Intelligence</title>
+    <meta name="description" content="Portfolio of Vamshi Krishna Bandari — AI Engineer, MSc Artificial Intelligence, B.Tech EEE (IARE). Machine learning, generative AI, agentic systems, and full-stack engineering." />
+    <meta property="og:title" content="Vamshi Krishna Bandari | AI Engineer" />
     <meta property="og:description" content="MSc Artificial Intelligence · B.Tech EEE · Machine learning, generative AI & intelligent systems · London" />
     <meta property="og:image" content="/profile/assets/profile.jpg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
   </head>
   <body>
     <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
     <canvas id="bg-canvas" aria-hidden="true"></canvas>
 
     <nav class="nav" id="nav">
-      <a href="#home" class="nav__logo">VKB</a>
+      <a href="#home" class="nav__logo">VK</a>
       <button class="nav__toggle" id="nav-toggle" aria-label="Menu"><span></span></button>
       <ul class="nav__links" id="nav-links">
         <li><a href="#about">About</a></li>
@@ -33,13 +33,17 @@
     <main>
       <section id="home" class="hero">
         <div class="hero__content">
-          <p class="hero__eyebrow">MSc Artificial Intelligence · AI Enthusiast · London, UK</p>
-          <h1 class="hero__title">Vamshi Krishna <em>Bandari</em></h1>
+          <p class="hero__eyebrow">AI Engineer · MSc Artificial Intelligence · London, UK</p>
+          <h1 class="hero__title">Vamshi Krishna <span class="hero__title-accent">Bandari</span></h1>
           <p class="hero__subtitle">Artificial Intelligence enthusiast building intelligent systems across machine learning, generative AI, and applied engineering.</p>
           <div class="hero__actions">
-            <a href="https://www.linkedin.com/in/vamshi-krishna-bandari-623580212" target="_blank" rel="noopener" class="btn btn--primary">LinkedIn</a>
+            <a href="#projects" class="btn btn--primary">View Projects</a>
+            <a href="https://www.linkedin.com/in/vamshi-krishna-bandari-623580212" target="_blank" rel="noopener" class="btn btn--ghost">LinkedIn</a>
             <a href="https://github.com/VamshiKrishnaBandari07" target="_blank" rel="noopener" class="btn btn--ghost">GitHub</a>
-            <a href="#highlights" class="btn btn--ghost">View gallery</a>
+          </div>
+          <div class="hero__featured">
+            <p class="hero__featured-label">Selected Projects</p>
+            <div class="hero__featured-list" id="hero-projects"></div>
           </div>
           <div class="hero__stats glass" id="hero-stats"></div>
         </div>
@@ -53,9 +57,10 @@
             <div class="hero__orbit hero__orbit--2"></div>
           </div>
           <div class="hero__badges">
-            <span class="hero__badge">AI Enthusiast</span>
+            <span class="hero__badge">AI Engineer</span>
+            <span class="hero__badge">6 Projects</span>
             <span class="hero__badge">London Tech Week 2026</span>
-            <span class="hero__badge">IARE · B.Tech EEE</span>
+            <span class="hero__badge">MSc AI · Roehampton</span>
           </div>
         </div>
       </section>
@@ -73,6 +78,10 @@
             <div class="about__skills glass">
               <h3>Core Expertise</h3>
               <div id="skills-bars"></div>
+              <div class="about__projects">
+                <h4>Key Projects</h4>
+                <ul id="about-projects"></ul>
+              </div>
             </div>
           </div>
         </div>
@@ -122,6 +131,7 @@
       <section id="experience" class="section">
         <div class="container">
           <header class="section__head"><span class="section__num">06</span><h2>Experience & Education</h2></header>
+          <p class="section__intro">Professional experience in data engineering and AI, alongside academic progression from B.Tech EEE to MSc Artificial Intelligence.</p>
           <div class="timeline" id="timeline"></div>
         </div>
       </section>
@@ -130,10 +140,27 @@
         <div class="container contact">
           <header class="section__head"><span class="section__num">07</span><h2>Contact</h2></header>
           <p class="contact__lead">Open to AI engineering roles, graduate opportunities, research collaborations, and applied machine learning projects.</p>
-          <div class="contact__links">
-            <a href="https://www.linkedin.com/in/vamshi-krishna-bandari-623580212" target="_blank" rel="noopener" class="contact__link">LinkedIn</a>
-            <a href="mailto:bvamshikrishna300@gmail.com" class="contact__link">Email</a>
-            <a href="https://github.com/VamshiKrishnaBandari07/donorlink" target="_blank" rel="noopener" class="contact__link">DonorLink</a>
+          <div class="contact__grid">
+            <a href="https://www.linkedin.com/in/vamshi-krishna-bandari-623580212" target="_blank" rel="noopener" class="contact__card">
+              <span class="contact__card-label">LinkedIn</span>
+              <strong>Vamshi Krishna Bandari</strong>
+              <span class="contact__card-meta">Professional profile & certifications</span>
+            </a>
+            <a href="mailto:bvamshikrishna300@gmail.com" class="contact__card">
+              <span class="contact__card-label">Email</span>
+              <strong>bvamshikrishna300@gmail.com</strong>
+              <span class="contact__card-meta">Direct enquiries & collaborations</span>
+            </a>
+            <a href="https://github.com/VamshiKrishnaBandari07" target="_blank" rel="noopener" class="contact__card">
+              <span class="contact__card-label">GitHub</span>
+              <strong>VamshiKrishnaBandari07</strong>
+              <span class="contact__card-meta">Open-source AI projects & code</span>
+            </a>
+            <a href="#projects" class="contact__card">
+              <span class="contact__card-label">Portfolio</span>
+              <strong>6 AI Projects</strong>
+              <span class="contact__card-meta">DonorLink, DT-AttNet, MSc capstone & more</span>
+            </a>
           </div>
         </div>
       </section>
@@ -156,7 +183,7 @@
     </div>
 
     <footer class="footer">
-      <p>&copy; 2026 Vamshi Krishna Bandari · MSc AI · London</p>
+      <p>&copy; 2026 Vamshi Krishna Bandari · AI Engineer · MSc Artificial Intelligence · London</p>
       <p class="footer__note">Built with Three.js · <a href="https://github.com/VamshiKrishnaBandari07/profile" target="_blank" rel="noopener">Source</a></p>
     </footer>
 

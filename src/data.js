@@ -1,6 +1,6 @@
 export const profile = {
   name: "Vamshi Krishna Bandari",
-  title: "MSc Artificial Intelligence · AI Enthusiast & Engineer",
+  title: "AI Engineer · MSc Artificial Intelligence · London, UK",
   location: "London, United Kingdom",
   email: "bvamshikrishna300@gmail.com",
   linkedin: "https://www.linkedin.com/in/vamshi-krishna-bandari-623580212",
@@ -22,9 +22,9 @@ export const about = {
 
 export const stats = [
   { value: 13, suffix: "+", label: "AI Certifications" },
-  { value: 6, suffix: "", label: "Event Photos" },
-  { value: 40, suffix: "%", label: "Data Integrity Gain · Cognizant" },
-  { value: 2, suffix: "", label: "Featured Events" },
+  { value: 6, suffix: "", label: "AI Projects Built" },
+  { value: 40, suffix: "%", label: "Data Integrity Gain" },
+  { value: 6, suffix: "", label: "Event Highlights" },
 ];
 
 export const skills = [
@@ -265,6 +265,8 @@ export const projects = [
     stack: ["FastAPI", "React", "TypeScript", "ML"],
     link: "https://github.com/VamshiKrishnaBandari07/donorlink",
     image: "/profile/assets/gallery/donorlink/01.jpg",
+    initials: "DL",
+    accent: "cyan",
   },
   {
     title: "SOH & RUL Prediction",
@@ -274,6 +276,8 @@ export const projects = [
     stack: ["Python", "Time Series", "ML"],
     link: "https://github.com/VamshiKrishnaBandari07/MSc-CAPSTONE-PROJECT-SOH-RUL-PREDICTION--",
     image: null,
+    initials: "SR",
+    accent: "violet",
   },
   {
     title: "DT-AttNet",
@@ -283,6 +287,8 @@ export const projects = [
     stack: ["PyTorch", "Deep Learning", "Python"],
     link: "https://github.com/VamshiKrishnaBandari07/DT-AttNet",
     image: null,
+    initials: "DT",
+    accent: "indigo",
   },
   {
     title: "Credit Risk Prediction Agent",
@@ -292,15 +298,19 @@ export const projects = [
     stack: ["Python", "Scikit-learn", "Jupyter"],
     link: "https://github.com/VamshiKrishnaBandari07/Credit-Risk-Prediction-Agent",
     image: null,
+    initials: "CR",
+    accent: "teal",
   },
   {
     title: "FRC × ODI Innovation Sprint",
     period: "2025",
     category: "Hackathon · FinTech",
-    desc: "XBRL-to-AI-ready JSON transformation layer for structured financial data — built at the FRC & Open Data Institute sprint in London.",
+    desc: "XBRL-to-AI-ready JSON transformation layer for structured financial data — built at the FRC and Open Data Institute sprint in London.",
     stack: ["Python", "XBRL", "Data Engineering"],
     link: "https://www.linkedin.com/posts/vamshi-krishna-bandari-623580212_frchackthon-ai-fintech-activity-7443460515583934464-_NxX",
     image: "/profile/assets/gallery/frc-hackathon/01.jpg",
+    initials: "FO",
+    accent: "amber",
   },
   {
     title: "Smart Energy Metering System",
@@ -310,6 +320,8 @@ export const projects = [
     stack: ["Embedded Systems", "IoT", "EEE"],
     link: "https://www.linkedin.com/in/vamshi-krishna-bandari-623580212",
     image: null,
+    initials: "SE",
+    accent: "emerald",
   },
 ];
 

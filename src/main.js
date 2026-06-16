@@ -16,12 +16,11 @@ async function bootstrap() {
   applyAbout(about);
   applyBadges(profile.badges || []);
 
-  const eventCount = highlights.filter((h) => (h.photos || []).length > 0).length;
   const stats = [
     { value: 13, suffix: "+", label: "AI Certifications" },
-    { value: photoCount(highlights), suffix: "", label: "Event Photos" },
+    { value: projects.length, suffix: "", label: "AI Projects Built" },
     { value: 40, suffix: "%", label: "Data Integrity Gain" },
-    { value: eventCount, suffix: "", label: "Featured Events" },
+    { value: photoCount(highlights), suffix: "", label: "Event Highlights" },
   ];
 
   refreshVisuals(highlights, allPhotos);
@@ -48,7 +47,7 @@ function applyProfile(p) {
   if (title && p.name) {
     const parts = p.name.split(" ");
     const last = parts.pop();
-    title.innerHTML = `${parts.join(" ")} <em>${last}</em>`;
+    title.innerHTML = `${parts.join(" ")} <span class="hero__title-accent">${last}</span>`;
   }
   const sub = document.querySelector(".hero__subtitle");
   if (sub && p.tagline) sub.textContent = p.tagline;
@@ -82,6 +81,22 @@ function refreshVisuals(highlights, allPhotos) {
   initGallery(highlights, allPhotos);
 }
 
+function projectVisual(p) {
+  if (p.image) {
+    return `<div class="card__image"><img src="${p.image}" alt="${p.title}" loading="lazy" /></div>`;
+  }
+  const initials = p.initials || p.title.slice(0, 2).toUpperCase();
+  const accent = p.accent || "cyan";
+  return `
+    <div class="card__image card__image--placeholder card__image--${accent}">
+      <div class="card__placeholder-inner">
+        <span class="card__placeholder-icon">${initials}</span>
+        <span class="card__placeholder-title">${p.title}</span>
+        <span class="card__placeholder-cat">${p.category}</span>
+      </div>
+    </div>`;
+}
+
 function renderStaticSections(stats) {
   const statsEl = document.getElementById("hero-stats");
   if (statsEl) {
@@ -93,6 +108,9 @@ function renderStaticSections(stats) {
       statsEl.appendChild(el);
     });
   }
+
+  renderHeroProjects();
+  renderAboutProjects();
 
   const skillsEl = document.getElementById("skills-bars");
   if (skillsEl && !skillsEl.children.length) {
@@ -119,6 +137,26 @@ function renderStaticSections(stats) {
   renderCerts();
   renderProjects();
   renderTimeline();
+}
+
+function renderHeroProjects() {
+  const el = document.getElementById("hero-projects");
+  if (!el) return;
+  el.innerHTML = projects
+    .slice(0, 4)
+    .map(
+      (p) =>
+        `<a href="${p.link}" target="_blank" rel="noopener" class="hero__project-chip" title="${p.title}">${p.title}</a>`
+    )
+    .join("");
+}
+
+function renderAboutProjects() {
+  const el = document.getElementById("about-projects");
+  if (!el) return;
+  el.innerHTML = projects
+    .map((p) => `<li><a href="${p.link}" target="_blank" rel="noopener">${p.title}</a><span>${p.category}</span></li>`)
+    .join("");
 }
 
 function renderCerts(filter = "All") {
@@ -162,11 +200,8 @@ function renderProjects() {
   projects.forEach((p) => {
     const card = document.createElement("article");
     card.className = "card card--project reveal";
-    const imgBlock = p.image
-      ? `<div class="card__image"><img src="${p.image}" alt="${p.title}" loading="lazy" /></div>`
-      : `<div class="card__image card__image--placeholder"><span>${(p.category || p.stack[0]).split("·")[0].trim()}</span></div>`;
     card.innerHTML = `
-      ${imgBlock}
+      ${projectVisual(p)}
       <div class="card__body">
         <div class="card__meta">
           <span class="card__category">${p.category || "Project"}</span>

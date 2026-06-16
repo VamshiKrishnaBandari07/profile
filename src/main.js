@@ -2,7 +2,7 @@ import { initScene } from "./scene3d.js";
 import { initGallery } from "./gallery.js";
 import { initAdmin } from "./admin.js";
 import { loadSiteData, getAllPhotos, normalizeHighlights, photoCount } from "./store.js";
-import { skills, achievements, certifications, projects, timeline } from "./data.js";
+import { skills, achievements, certifications, projects, timeline, hackathons } from "./data.js";
 import "./style.css";
 
 async function bootstrap() {
@@ -19,8 +19,8 @@ async function bootstrap() {
   const stats = [
     { value: 13, suffix: "+", label: "AI Certifications" },
     { value: projects.length, suffix: "", label: "AI Projects Built" },
+    { value: hackathons.length, suffix: "", label: "London Hackathons" },
     { value: 40, suffix: "%", label: "Data Integrity Gain" },
-    { value: photoCount(highlights), suffix: "", label: "Event Highlights" },
   ];
 
   refreshVisuals(highlights, allPhotos);
@@ -134,6 +134,7 @@ function renderStaticSections(stats) {
     });
   }
 
+  renderHackathons();
   renderCerts();
   renderProjects();
   renderTimeline();
@@ -157,6 +158,29 @@ function renderAboutProjects() {
   el.innerHTML = projects
     .map((p) => `<li><a href="${p.link}" target="_blank" rel="noopener">${p.title}</a><span>${p.category}</span></li>`)
     .join("");
+}
+
+function renderHackathons() {
+  const el = document.getElementById("hackathons-grid");
+  if (!el || el.children.length) return;
+  hackathons.forEach((h) => {
+    const card = document.createElement("article");
+    card.className = `hackathon-card hackathon-card--${h.accent} reveal`;
+    card.innerHTML = `
+      <div class="hackathon-card__top">
+        <span class="hackathon-card__badge">${h.highlight}</span>
+        <time class="hackathon-card__date">${h.date}</time>
+      </div>
+      <h3 class="hackathon-card__title">${h.title}</h3>
+      <p class="hackathon-card__org">${h.org}</p>
+      <p class="hackathon-card__location">${h.location}</p>
+      <p class="hackathon-card__excerpt">${h.excerpt}</p>
+      <p class="hackathon-card__outcome"><strong>${h.outcome}</strong></p>
+      <div class="hackathon-card__tags">${h.tags.map((t) => `<span>${t}</span>`).join("")}</div>
+      <div class="hackathon-card__stack">${h.stack.map((s) => `<span>${s}</span>`).join("")}</div>
+      <a href="${h.linkedin}" target="_blank" rel="noopener" class="hackathon-card__link">View on LinkedIn →</a>`;
+    el.appendChild(card);
+  });
 }
 
 function renderCerts(filter = "All") {

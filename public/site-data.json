@@ -8,13 +8,13 @@
     "github": "https://github.com/VamshiKrishnaBandari07",
     "photo": "/profile/assets/profile.jpg",
     "tagline": "Artificial Intelligence enthusiast building intelligent systems across machine learning, generative AI, and applied engineering.",
-    "badges": ["AI Engineer", "6 Projects", "London Tech Week 2026", "MSc AI · Roehampton"]
+    "badges": ["London Hackathons", "AI Engineer", "6 Projects", "MSc AI · Roehampton"]
   },
   "about": {
     "lead": "Artificial Intelligence enthusiast with an engineering foundation and a research-oriented MSc — focused on building reliable, data-driven intelligent systems.",
     "paragraphs": [
       "I hold a B.Tech in Electrical and Electronics Engineering from the Institute of Aeronautical Engineering (IARE), Hyderabad, where I delivered a smart energy metering project and achieved 2nd place in an inter-college data analytics hackathon. At Cognizant on Google Cloud, I engineered ETL pipelines and automated KPI dashboards, improving data integrity by 40%.",
-      "I am completing an MSc in Artificial Intelligence at the University of Roehampton, London, specialising in machine learning, deep learning, generative AI, and intelligent agent systems. I actively participate in London's innovation ecosystem — including London Tech Week, policy forums, and fintech hackathons.",
+      "I am completing an MSc in Artificial Intelligence at the University of Roehampton, London, specialising in machine learning, deep learning, generative AI, and intelligent agent systems. I actively build at London hackathons — including the MongoDB Agentic Evolution Hackathon, Encode Vibe Coding Hackathon, and the FRC & ODI Innovation Sprint — alongside London Tech Week and policy forums.",
       "Currently serving as an AI-Driven Business Development Intern at Crown Fund, where I apply data analytics, AI tooling, and market research to support growth and innovation strategy."
     ]
   },
@@ -53,27 +53,18 @@
     },
     {
       "id": "frc-hackathon",
-      "title": "FRC and ODI Innovation Sprint",
+      "title": "FRC & ODI Innovation Sprint",
       "location": "London, United Kingdom",
       "date": "2025",
-      "category": "FinTech",
-      "featured": false,
-      "excerpt": "Financial Reporting Council and Open Data Institute Innovation Sprint — XBRL-to-AI-ready JSON transformation for financial analytics.",
-      "tags": ["FinTech", "XBRL", "Hackathon"],
+      "category": "Hackathon",
+      "featured": true,
+      "excerpt": "FRC and ODI Open Structured Company Data Innovation Sprint — XBRL-to-AI-ready JSON for financial analytics.",
+      "tags": ["FRC", "ODI", "FinTech", "Hackathon"],
       "linkedin": "https://www.linkedin.com/posts/vamshi-krishna-bandari-623580212_frchackthon-ai-fintech-activity-7443460515583934464-_NxX",
-      "photos": []
-    },
-    {
-      "id": "donorlink",
-      "title": "DonorLink · Agentic AI Platform",
-      "location": "Research Prototype",
-      "date": "2026",
-      "category": "AI Systems",
-      "featured": false,
-      "excerpt": "Full-stack agentic AI platform with RAG-grounded knowledge, multi-agent workflows, and predictive analytics.",
-      "tags": ["DonorLink", "RAG", "Agents"],
-      "linkedin": "https://github.com/VamshiKrishnaBandari07/donorlink",
-      "photos": []
+      "photos": [
+        { "src": "/profile/assets/gallery/frc-hackathon/01.jpg", "caption": "FRC & ODI Innovation Sprint · London" },
+        { "src": "/profile/assets/gallery/frc-hackathon/02.jpg", "caption": "FinTech · Structured Data Hackathon" }
+      ]
     }
   ]
 }

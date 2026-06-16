@@ -15,7 +15,7 @@ export const about = {
     "Artificial Intelligence enthusiast with an engineering foundation and a research-oriented MSc — focused on building reliable, data-driven intelligent systems.",
   paragraphs: [
     "I hold a B.Tech in Electrical and Electronics Engineering from the Institute of Aeronautical Engineering (IARE), Hyderabad, where I delivered a smart energy metering project and achieved 2nd place in an inter-college data analytics hackathon. At Cognizant on Google Cloud, I engineered ETL pipelines and automated KPI dashboards, improving data integrity by 40%.",
-    "I am completing an MSc in Artificial Intelligence at the University of Roehampton, London, specialising in machine learning, deep learning, generative AI, and intelligent agent systems. I actively participate in London's innovation ecosystem — including London Tech Week, policy forums, and fintech hackathons.",
+    "I am completing an MSc in Artificial Intelligence at the University of Roehampton, London, specialising in machine learning, deep learning, generative AI, and intelligent agent systems. I actively build at London hackathons — including the MongoDB Agentic Evolution Hackathon, Encode Vibe Coding Hackathon, and the FRC & ODI Innovation Sprint — alongside London Tech Week and policy forums.",
     "Currently serving as an AI-Driven Business Development Intern at Crown Fund, where I apply data analytics, AI tooling, and market research to support growth and innovation strategy.",
   ],
 };
@@ -23,8 +23,60 @@ export const about = {
 export const stats = [
   { value: 13, suffix: "+", label: "AI Certifications" },
   { value: 6, suffix: "", label: "AI Projects Built" },
+  { value: 3, suffix: "", label: "London Hackathons" },
   { value: 40, suffix: "%", label: "Data Integrity Gain" },
-  { value: 6, suffix: "", label: "Event Highlights" },
+];
+
+export const hackathons = [
+  {
+    id: "mongodb-agentic",
+    title: "MongoDB Agentic Evolution Hackathon",
+    org: "MongoDB · LangChain · NVIDIA · Cerebral Valley",
+    location: "London, United Kingdom",
+    date: "May 2026",
+    category: "Agentic AI",
+    accent: "mongo",
+    highlight: "Agentic AI · London",
+    excerpt:
+      "Built agentic AI solutions at MongoDB.local London — co-hosted with LangChain, NVIDIA, and Emergent Labs. Focused on intelligent agents, MongoDB-backed memory, and production-ready AI workflows in a high-intensity London hackathon environment.",
+    outcome: "Participated · MongoDB.local London",
+    tags: ["MongoDB", "LangChain", "Agents", "NVIDIA"],
+    stack: ["Python", "MongoDB", "LangChain", "Agents"],
+    linkedin: "https://www.linkedin.com/in/vamshi-krishna-bandari-623580212/recent-activity/all/",
+  },
+  {
+    id: "encode-vibe",
+    title: "Encode Vibe Coding Hackathon",
+    org: "Encode Club · Encode Hub",
+    location: "Shoreditch, London",
+    date: "2026",
+    category: "Vibe Coding · AI Build",
+    accent: "violet",
+    highlight: "Vibe Coding · Shoreditch",
+    excerpt:
+      "Three-day London hackathon at Encode Hub — build exclusively with AI tools, models, and workflows. Prototyped product ideas with mentorship, workshops, and a pure AI-first engineering approach in the heart of Shoreditch's tech scene.",
+    outcome: "Participated · AI-Only Build",
+    tags: ["Vibe Coding", "Encode", "Generative AI", "Prototyping"],
+    stack: ["AI Tools", "LLMs", "Rapid Prototyping"],
+    linkedin: "https://www.linkedin.com/in/vamshi-krishna-bandari-623580212/recent-activity/all/",
+  },
+  {
+    id: "frc-odi",
+    title: "FRC & ODI Innovation Sprint",
+    org: "Financial Reporting Council · Open Data Institute",
+    location: "London, United Kingdom",
+    date: "2025",
+    category: "FinTech · Data Engineering",
+    accent: "amber",
+    highlight: "FinTech Sprint · London",
+    excerpt:
+      "Financial Reporting Council and Open Data Institute Innovation Sprint — designed an XBRL-to-AI-ready JSON transformation layer with David, turning complex financial reports into structured data for analytics, automation, and intelligent decision-making.",
+    outcome: "Innovation Sprint · XBRL → AI JSON",
+    tags: ["FRC", "ODI", "XBRL", "FinTech"],
+    stack: ["Python", "XBRL", "JSON", "Data Engineering"],
+    linkedin:
+      "https://www.linkedin.com/posts/vamshi-krishna-bandari-623580212_frchackthon-ai-fintech-activity-7443460515583934464-_NxX",
+  },
 ];
 
 export const skills = [
@@ -80,32 +132,21 @@ export const highlights = [
   },
   {
     id: "frc-hackathon",
-    title: "FRC and ODI Innovation Sprint",
+    title: "FRC & ODI Innovation Sprint",
     location: "London, United Kingdom",
     date: "2025",
-    category: "FinTech",
-    featured: false,
+    category: "Hackathon",
+    featured: true,
     image: "/profile/assets/gallery/frc-hackathon/01.jpg",
     excerpt:
-      "Financial Reporting Council and Open Data Institute Innovation Sprint — XBRL-to-AI-ready JSON transformation for financial analytics.",
-    tags: ["FinTech", "XBRL", "Hackathon"],
+      "FRC and ODI Open Structured Company Data Innovation Sprint — XBRL-to-AI-ready JSON for financial analytics.",
+    tags: ["FRC", "ODI", "FinTech", "Hackathon"],
     linkedin:
       "https://www.linkedin.com/posts/vamshi-krishna-bandari-623580212_frchackthon-ai-fintech-activity-7443460515583934464-_NxX",
-    photos: [],
-  },
-  {
-    id: "donorlink",
-    title: "DonorLink · Agentic AI Platform",
-    location: "Research Prototype",
-    date: "2026",
-    category: "AI Systems",
-    featured: false,
-    image: "/profile/assets/gallery/donorlink/01.jpg",
-    excerpt:
-      "Full-stack agentic AI platform with RAG-grounded knowledge, multi-agent workflows, and predictive analytics.",
-    tags: ["DonorLink", "RAG", "Agents"],
-    linkedin: "https://github.com/VamshiKrishnaBandari07/donorlink",
-    photos: [],
+    photos: [
+      { src: "/profile/assets/gallery/frc-hackathon/01.jpg", caption: "FRC & ODI Innovation Sprint · London" },
+      { src: "/profile/assets/gallery/frc-hackathon/02.jpg", caption: "FinTech · Structured Data Hackathon" },
+    ],
   },
 ];
 
@@ -131,29 +172,29 @@ export function getAllPhotos(highlights) {
 
 export const achievements = [
   {
+    metric: "MongoDB",
+    label: "Agentic Evolution Hackathon",
+    detail: "London · Agentic AI build with MongoDB, LangChain & NVIDIA ecosystem partners",
+  },
+  {
+    metric: "Encode",
+    label: "Vibe Coding Hackathon",
+    detail: "Shoreditch, London — AI-only product prototyping at Encode Hub with workshops & mentorship",
+  },
+  {
+    metric: "FRC × ODI",
+    label: "FinTech Innovation Sprint",
+    detail: "XBRL-to-AI-ready JSON transformation — structured financial data for analytics & automation",
+  },
+  {
     metric: "London",
     label: "Tech Week 2026 · EXPO",
-    detail: "University of Roehampton representative at London Tech Week — enterprise AI, innovation & networking",
+    detail: "University of Roehampton representative — enterprise AI, innovation & networking",
   },
   {
     metric: "Chamber UK",
     label: "Policy & Westminster Forum",
-    detail: "Policy-to-practice discussions with leaders across public services, data, and AI adoption",
-  },
-  {
-    metric: "2nd Place",
-    label: "Data Analytics Hackathon",
-    detail: "Inter-college competition during B.Tech at IARE — Institute of Aeronautical Engineering",
-  },
-  {
-    metric: "40%",
-    label: "Data Integrity Gain",
-    detail: "Cognizant · Google Cloud — 10+ ETL pipelines, automated KPI dashboards, faster refresh cycles",
-  },
-  {
-    metric: "Pod Lead",
-    label: "Team Leadership · Cognizant",
-    detail: "Mentored 15 analysts; promoted for workflow optimisation and performance leadership",
+    detail: "Policy-to-practice discussions on AI adoption across public services and healthcare",
   },
   {
     metric: "13+",
@@ -305,7 +346,7 @@ export const projects = [
     title: "FRC × ODI Innovation Sprint",
     period: "2025",
     category: "Hackathon · FinTech",
-    desc: "XBRL-to-AI-ready JSON transformation layer for structured financial data — built at the FRC and Open Data Institute sprint in London.",
+    desc: "At the FRC and Open Data Institute Innovation Sprint in London, built an XBRL-to-AI-ready JSON layer — converting complex financial reports into structured data for analytics and intelligent systems.",
     stack: ["Python", "XBRL", "Data Engineering"],
     link: "https://www.linkedin.com/posts/vamshi-krishna-bandari-623580212_frchackthon-ai-fintech-activity-7443460515583934464-_NxX",
     image: "/profile/assets/gallery/frc-hackathon/01.jpg",

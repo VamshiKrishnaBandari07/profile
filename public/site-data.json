@@ -1,0 +1,84 @@
+{
+  "profile": {
+    "name": "Vamshi Krishna Bandari",
+    "title": "MSc Artificial Intelligence · AI Enthusiast & Engineer",
+    "location": "London, United Kingdom",
+    "email": "bvamshikrishna300@gmail.com",
+    "linkedin": "https://www.linkedin.com/in/vamshi-krishna-bandari-623580212",
+    "github": "https://github.com/VamshiKrishnaBandari07",
+    "photo": "/profile/assets/profile.jpg",
+    "tagline": "Artificial intelligence enthusiast · Machine learning, generative AI & intelligent systems · From B.Tech EEE to applied research & engineering",
+    "badges": ["AI Enthusiast", "London Tech Week 2026", "IARE · B.Tech EEE", "MSc · Roehampton"]
+  },
+  "about": {
+    "lead": "I am an artificial intelligence enthusiast and MSc graduate who combines research discipline with hands-on engineering — building intelligent systems that turn data into practical, trustworthy outcomes.",
+    "paragraphs": [
+      "My foundation is a B.Tech in Electrical & Electronics Engineering from the Institute of Aeronautical Engineering (IARE), Hyderabad, where I worked on smart energy metering and placed 2nd in an inter-college data analytics hackathon. I strengthened that base at Cognizant as a Process Executive on Google Cloud — designing ETL pipelines, automating KPI dashboards, and improving data integrity by 40%.",
+      "I am now completing an MSc in Artificial Intelligence at the University of Roehampton, London, with focus on machine learning, deep learning, generative AI, and AI systems engineering. I actively engage with London's innovation ecosystem — London Tech Week, policy forums, and fintech hackathons — while exploring agentic AI, predictive analytics, and full-stack product development.",
+      "Currently: AI-Driven Business Development Intern at Crown Fund, applying data-driven insights, AI tooling, and market analysis to growth and innovation strategy."
+    ]
+  },
+  "highlights": [
+    {
+      "id": "parliament",
+      "title": "Chamber UK · Policy & Parliament Forum",
+      "location": "London, United Kingdom",
+      "date": "2025",
+      "category": "Policy",
+      "featured": true,
+      "excerpt": "Chamber UK & Curia policy forum — turning policy into practice alongside Westminster leaders.",
+      "tags": ["Chamber UK", "Public Policy", "Westminster"],
+      "linkedin": "https://www.linkedin.com/posts/vamshi-krishna-bandari-623580212_ai-aidevelopment-aiadoption-activity-7449937731247542273-tCUW",
+      "photos": [
+        { "src": "/profile/assets/gallery/parliament/01.png", "caption": "Chamber UK · Westminster Podium" },
+        { "src": "/profile/assets/gallery/parliament/02.png", "caption": "Turning Policy Into Practice" }
+      ]
+    },
+    {
+      "id": "london-tech",
+      "title": "London Tech Week & Innovation Events",
+      "location": "London, United Kingdom",
+      "date": "2026",
+      "category": "Innovation",
+      "featured": true,
+      "excerpt": "London Tech Week 2026 EXPO · London Lab Live · Formula E × Google Cloud showcase.",
+      "tags": ["London Tech Week", "Lab Live", "Google Cloud"],
+      "linkedin": "https://www.linkedin.com/in/vamshi-krishna-bandari-623580212/recent-activity/all/",
+      "photos": [
+        { "src": "/profile/assets/gallery/london-tech/01.png", "caption": "London Tech Week 2026 · EXPO" },
+        { "src": "/profile/assets/gallery/london-tech/02.png", "caption": "London Lab Live · Visitor" },
+        { "src": "/profile/assets/gallery/london-tech/03.png", "caption": "Formula E × Google Cloud" },
+        { "src": "/profile/assets/gallery/london-tech/04.png", "caption": "LTW Badge · Roehampton" }
+      ]
+    },
+    {
+      "id": "frc-hackathon",
+      "title": "FRC & ODI Innovation Sprint",
+      "location": "London, United Kingdom",
+      "date": "2025",
+      "category": "FinTech",
+      "featured": false,
+      "excerpt": "FRC & Open Data Institute Innovation Sprint — XBRL-to-AI-ready JSON transformation.",
+      "tags": ["FinTech", "XBRL", "Hackathon"],
+      "linkedin": "https://www.linkedin.com/posts/vamshi-krishna-bandari-623580212_frchackthon-ai-fintech-activity-7443460515583934464-_NxX",
+      "photos": [
+        { "src": "/profile/assets/gallery/frc-hackathon/01.jpg", "caption": "Innovation Sprint" },
+        { "src": "/profile/assets/gallery/frc-hackathon/02.jpg", "caption": "Team Build" }
+      ]
+    },
+    {
+      "id": "donorlink",
+      "title": "DonorLink · Agentic AI Platform",
+      "location": "Research Prototype",
+      "date": "2026",
+      "category": "AI Systems",
+      "featured": false,
+      "excerpt": "Full-stack agentic AI with RAG, multi-agent workflows, and predictive analytics.",
+      "tags": ["DonorLink", "RAG", "Agents"],
+      "linkedin": "https://github.com/VamshiKrishnaBandari07/donorlink",
+      "photos": [
+        { "src": "/profile/assets/gallery/donorlink/01.jpg", "caption": "Agentic AI Platform" }
+      ]
+    }
+  ]
+}

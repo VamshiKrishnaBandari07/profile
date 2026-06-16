@@ -1,13 +1,23 @@
 export const profile = {
   name: "Vamshi Krishna Bandari",
-  title: "MSc Artificial Intelligence · Research & Engineering",
+  title: "MSc Artificial Intelligence · AI Enthusiast & Engineer",
   location: "London, United Kingdom",
   email: "bvamshikrishna300@gmail.com",
   linkedin: "https://www.linkedin.com/in/vamshi-krishna-bandari-623580212",
   github: "https://github.com/VamshiKrishnaBandari07",
   photo: "/profile/assets/profile.jpg",
   tagline:
-    "Machine learning research · Intelligent systems · Applied engineering for healthcare & decision support",
+    "Artificial intelligence enthusiast · Machine learning, generative AI & intelligent systems · From B.Tech EEE to applied research & engineering",
+};
+
+export const about = {
+  lead:
+    "I am an artificial intelligence enthusiast and MSc graduate who combines research discipline with hands-on engineering — building intelligent systems that turn data into practical, trustworthy outcomes.",
+  paragraphs: [
+    "My foundation is a B.Tech in Electrical & Electronics Engineering from the Institute of Aeronautical Engineering (IARE), Hyderabad, where I worked on smart energy metering and placed 2nd in an inter-college data analytics hackathon. I strengthened that base at Cognizant as a Process Executive on Google Cloud — designing ETL pipelines, automating KPI dashboards, and improving data integrity by 40%.",
+    "I am now completing an MSc in Artificial Intelligence at the University of Roehampton, London, with focus on machine learning, deep learning, generative AI, and AI systems engineering. I actively engage with London's innovation ecosystem — London Tech Week, policy forums, and fintech hackathons — while exploring agentic AI, predictive analytics, and full-stack product development.",
+    "Currently: AI-Driven Business Development Intern at Crown Fund, applying data-driven insights, AI tooling, and market analysis to growth and innovation strategy.",
+  ],
 };
 
 export const stats = [
@@ -148,34 +158,34 @@ export function getAllPhotos(highlights) {
 
 export const achievements = [
   {
-    metric: "UK Parliament",
-    label: "AI in Healthcare Showcase",
-    detail: "Palace of Westminster — policy & NHS scaling discussions with MPs and innovators",
-  },
-  {
     metric: "London",
-    label: "Tech & Innovation Events",
-    detail: "FRC/ODI Innovation Sprint, fintech hackathons, and UK AI ecosystem engagement",
+    label: "Tech Week 2026 · EXPO",
+    detail: "University of Roehampton representative at London Tech Week — enterprise AI, innovation & networking",
   },
   {
-    metric: "KidneyX",
-    label: "EMPOWER Prize Submission",
-    detail: "DonorLink clinical decision-support platform · Team VK7 · Track B prototype",
-  },
-  {
-    metric: "40%",
-    label: "Data Integrity Gain",
-    detail: "Cognizant — Google Cloud migration, 10+ ETL pipelines, KPI dashboard automation",
-  },
-  {
-    metric: "Pod Lead",
-    label: "Team Leadership",
-    detail: "Mentored 15 analysts at Cognizant; promoted for workflow & performance leadership",
+    metric: "Chamber UK",
+    label: "Policy & Westminster Forum",
+    detail: "Policy-to-practice discussions with leaders across public services, data, and AI adoption",
   },
   {
     metric: "2nd Place",
     label: "Data Analytics Hackathon",
-    detail: "Inter-college competition during B.Tech — Institute of Aeronautical Engineering",
+    detail: "Inter-college competition during B.Tech at IARE — Institute of Aeronautical Engineering",
+  },
+  {
+    metric: "40%",
+    label: "Data Integrity Gain",
+    detail: "Cognizant · Google Cloud — 10+ ETL pipelines, automated KPI dashboards, faster refresh cycles",
+  },
+  {
+    metric: "Pod Lead",
+    label: "Team Leadership · Cognizant",
+    detail: "Mentored 15 analysts; promoted for workflow optimisation and performance leadership",
+  },
+  {
+    metric: "13+",
+    label: "AI & Data Certifications",
+    detail: "Microsoft, Google Cloud, IBM, Oracle — generative AI, agents, ethics, and analytics",
   },
 ];
 
@@ -276,30 +286,56 @@ export const certifications = [
 export const projects = [
   {
     title: "DonorLink",
-    desc: "Clinical decision-support platform with intelligent agents, retrieval-grounded knowledge, and predictive analytics.",
+    period: "2026",
+    category: "Agentic AI · Full-Stack",
+    desc: "Multi-agent platform with RAG-grounded knowledge and predictive analytics — intelligent workflows for complex decision support.",
     stack: ["FastAPI", "React", "TypeScript", "ML"],
     link: "https://github.com/VamshiKrishnaBandari07/donorlink",
-    image: "/profile/assets/highlights/donorlink.jpg",
+    image: "/profile/assets/gallery/donorlink/01.jpg",
+  },
+  {
+    title: "SOH & RUL Prediction",
+    period: "MSc Capstone",
+    category: "MSc Research",
+    desc: "Master's research on battery state-of-health estimation and remaining useful life prediction using time-series machine learning.",
+    stack: ["Python", "Time Series", "ML"],
+    link: "https://github.com/VamshiKrishnaBandari07/MSc-CAPSTONE-PROJECT-SOH-RUL-PREDICTION--",
+    image: null,
   },
   {
     title: "DT-AttNet",
-    desc: "Dual-Head Temporal Attention Network for behavioural risk prediction using CNN, BiLSTM, and multi-head self-attention.",
+    period: "2025",
+    category: "Deep Learning",
+    desc: "Dual-Head Temporal Attention Network — CNN, BiLSTM, and multi-head self-attention for behavioural risk prediction.",
     stack: ["PyTorch", "Deep Learning", "Python"],
     link: "https://github.com/VamshiKrishnaBandari07/DT-AttNet",
     image: null,
   },
   {
     title: "Credit Risk Prediction Agent",
-    desc: "ML framework comparing Naive Bayes, Random Forest, and KNN with ROC-AUC and confusion matrix evaluation.",
-    stack: ["Python", "Scikit-learn", "ML"],
+    period: "2025",
+    category: "Machine Learning",
+    desc: "Automated lending risk system comparing Naive Bayes, Random Forest, and KNN with ROC-AUC evaluation for data-driven decisions.",
+    stack: ["Python", "Scikit-learn", "Jupyter"],
     link: "https://github.com/VamshiKrishnaBandari07/Credit-Risk-Prediction-Agent",
     image: null,
   },
   {
-    title: "SOH & RUL Prediction",
-    desc: "MSc capstone on state-of-health estimation and remaining useful life prediction for battery systems.",
-    stack: ["Python", "Time Series", "ML"],
-    link: "https://github.com/VamshiKrishnaBandari07/MSc-CAPSTONE-PROJECT-SOH-RUL-PREDICTION--",
+    title: "FRC × ODI Innovation Sprint",
+    period: "2025",
+    category: "Hackathon · FinTech",
+    desc: "XBRL-to-AI-ready JSON transformation layer for structured financial data — built at the FRC & Open Data Institute sprint in London.",
+    stack: ["Python", "XBRL", "Data Engineering"],
+    link: "https://www.linkedin.com/posts/vamshi-krishna-bandari-623580212_frchackthon-ai-fintech-activity-7443460515583934464-_NxX",
+    image: "/profile/assets/gallery/frc-hackathon/01.jpg",
+  },
+  {
+    title: "Smart Energy Metering System",
+    period: "B.Tech · IARE",
+    category: "B.Tech · EEE",
+    desc: "IoT-based smart energy metering project during B.Tech at Institute of Aeronautical Engineering — hardware sensing with data monitoring and analysis.",
+    stack: ["Embedded Systems", "IoT", "EEE"],
+    link: "https://www.linkedin.com/in/vamshi-krishna-bandari-623580212",
     image: null,
   },
 ];
@@ -309,24 +345,24 @@ export const timeline = [
     period: "Apr 2026 — Present",
     role: "AI-Driven Business Development Intern",
     org: "Crown Fund · London",
-    detail: "Data-driven market analysis, AI tooling exploration, lead generation, and cross-functional business insights.",
+    detail: "Market research, AI tooling exploration, lead generation, and cross-functional business insights driven by data analytics.",
   },
   {
-    period: "2025 — Present",
+    period: "2024 — 2026",
     role: "MSc Artificial Intelligence",
     org: "University of Roehampton · London",
-    detail: "Machine learning, deep learning, generative AI, AI systems engineering, computational intelligence.",
+    detail: "Machine learning, deep learning, generative AI, intelligent agents, AI systems engineering, and computational intelligence.",
   },
   {
     period: "Dec 2023 — Aug 2025",
     role: "Process Executive — Data",
-    org: "Cognizant · Google Cloud",
-    detail: "10+ ETL pipelines, 40% data integrity improvement, Power BI dashboards, 30% faster data refresh cycles.",
+    org: "Cognizant · Google Cloud · Hyderabad",
+    detail: "10+ ETL pipelines, 40% data integrity improvement, Power BI & Cognos dashboards, pod leadership for 15 analysts.",
   },
   {
     period: "2019 — 2023",
-    role: "B.Tech Electrical & Electronics Engineering",
-    org: "Institute of Aeronautical Engineering · India",
-    detail: "Engineering foundation with data analytics hackathon recognition and smart energy metering project.",
+    role: "B.Tech · Electrical & Electronics Engineering",
+    org: "Institute of Aeronautical Engineering (IARE) · Hyderabad",
+    detail: "Smart energy metering project, data analytics hackathon (2nd place), and engineering foundation in electronics, power systems, and embedded applications.",
   },
 ];

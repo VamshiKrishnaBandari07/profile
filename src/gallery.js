@@ -9,7 +9,7 @@ export function initGallery(highlights, allPhotos) {
   const photoWall = document.getElementById("photo-wall");
   const albums = document.getElementById("event-albums");
 
-  if (!bento) return;
+  if (!spotlight && !photoWall) return;
 
   const categories = ["All", ...new Set(highlights.map((h) => h.category))];
   let activeFilter = "All";
@@ -308,9 +308,9 @@ export function initGallery(highlights, allPhotos) {
     const featured = filtered.find((h) => h.featured) || filtered[0];
     const idx = filtered.indexOf(featured);
     renderSpotlight(featured, idx >= 0 ? idx : 0, 0);
-    renderBento();
+    if (bento) renderBento();
     renderPhotoWall();
-    renderAlbums();
+    if (albums) renderAlbums();
     renderFilmstrip();
   }
 
